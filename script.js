@@ -66,17 +66,6 @@ function updateSectionHeaders() {
     });
 }
 
-function resetProgress() {
-    if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
-        const checkboxes = document.querySelectorAll('.topic-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
-        updateProgress();
-        clearSavedProgress();
-    }
-}
-
 function saveProgress() {
     const checkboxes = document.querySelectorAll('.topic-checkbox');
     const progress = [];

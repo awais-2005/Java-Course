@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Course Todo List</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -26,11 +27,11 @@
             <div class="content">
                 <!-- Java Fundamentals -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Java Fundamentals & Basics</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Java Development Kit setup</span>
@@ -86,11 +87,11 @@
 
                 <!-- Control Flow -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Control Flow & Decision Making</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">If Else</span>
@@ -116,11 +117,11 @@
 
                 <!-- Loops -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Loops & Iterations</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Need For Loop</span>
@@ -151,11 +152,11 @@
 
                 <!-- Object-Oriented Programming -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Object-Oriented Programming Basics</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Class And Object Theory</span>
@@ -191,11 +192,11 @@
 
                 <!-- Arrays and Data Structures -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Arrays & Basic Data Structures</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Need of an Array</span>
@@ -236,11 +237,11 @@
 
                 <!-- String Handling -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>String Handling</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">What is String</span>
@@ -261,11 +262,11 @@
 
                 <!-- Static and Constructors -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Static, Constructors & Keywords</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Static Variable</span>
@@ -326,11 +327,11 @@
 
                 <!-- Inheritance -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Inheritance & Polymorphism</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Need of Inheritance</span>
@@ -396,11 +397,11 @@
 
                 <!-- Abstract Classes and Interfaces -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Abstract Classes, Interfaces & Inner Classes</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Abstract Keyword</span>
@@ -441,11 +442,11 @@
 
                 <!-- Enums and Annotations -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Enums, Annotations & Lambda</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">What is Enum</span>
@@ -491,11 +492,11 @@
 
                 <!-- Exception Handling -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Exception Handling & I/O</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">What is Exception</span>
@@ -546,11 +547,11 @@
 
                 <!-- Threading -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Multi-Threading</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Threads</span>
@@ -586,11 +587,11 @@
 
                 <!-- Collections -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Collections Framework</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Collection API</span>
@@ -621,11 +622,11 @@
 
                 <!-- Stream API -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Stream API & Modern Java</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Need of Stream API</span>
@@ -651,11 +652,11 @@
 
                 <!-- Testing -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Testing Framework</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">JUnit</span>
@@ -666,11 +667,11 @@
 
                 <!-- Data Structures and Algorithms -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Data Structures & Algorithms</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">DSA Intro</span>
@@ -696,11 +697,11 @@
 
                 <!-- Search Algorithms -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Search Algorithms</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Linear Search</span>
@@ -751,11 +752,11 @@
 
                 <!-- Sorting Algorithms -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Sorting Algorithms</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Sorting Techniques</span>
@@ -831,11 +832,11 @@
 
                 <!-- Advanced Data Structures -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Advanced Data Structures</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Linked List</span>
@@ -876,11 +877,11 @@
 
                 <!-- Stack Implementation -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Stack Implementation</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Stack</span>
@@ -931,11 +932,11 @@
 
                 <!-- Queue Implementation -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Queue Implementation</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Queue</span>
@@ -981,11 +982,11 @@
 
                 <!-- Tree Data Structure -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Tree Data Structure</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Tree</span>
@@ -1026,11 +1027,11 @@
 
                 <!-- Git Version Control -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Version Control</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Git</span>
@@ -1041,11 +1042,11 @@
 
                 <!-- Core Java Topics -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Core Java Topics</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
 
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
@@ -1072,11 +1073,11 @@
 
                 <!-- Hibernate Section -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Hibernate Section</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Introduction to Hibernate</span>
@@ -1157,11 +1158,11 @@
 
                 <!-- Spring Framework Section -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Spring Framework Section</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Introduction to Spring</span>
@@ -1267,11 +1268,11 @@
 
                 <!-- Spring Boot MVC -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Spring Boot MVC</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">@RequestParam</span>
@@ -1312,11 +1313,11 @@
 
                 <!-- REST API and Projects -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>REST API and Projects</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">REST</span>
@@ -1347,11 +1348,11 @@
 
                 <!-- Advanced Spring Topics -->
                 <div class="section">
-                    <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-header collapsed" onclick="toggleSection(this)">
                         <span>Advanced Spring Topics</span>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon"><i class="ri-arrow-drop-right-line"></i></span>
                     </div>
-                    <div class="section-content">
+                    <div class="section-content collapsed">
                         <div class="topic-item">
                             <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
                             <span class="topic-title">Spring AOP</span>

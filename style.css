@@ -100,7 +100,7 @@ body {
 }
 
 .section-header.collapsed .collapse-icon {
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
 
 .section-content {
@@ -212,7 +212,7 @@ body {
         font-size: 1.5em;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     .header {
         padding: 20px 10px;
     }
