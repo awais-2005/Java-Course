@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <div class="header">
+                <h1>Java Course Progress Tracker</h1>
+                <p style="color: yellow;">Spend 48 hours with Java</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0% Complete (0/181 topics)</div>
+            </div>
+
+            <div class="content">
+                <!-- Java Fundamentals -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Java Fundamentals & Basics</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Java Development Kit setup</span>
+                            <span class="topic-duration">0:05:04</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">First code in Java</span>
+                            <span class="topic-duration">0:08:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">How Java Works</span>
+                            <span class="topic-duration">0:11:14</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Variables in Java</span>
+                            <span class="topic-duration">0:11:59</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Data types in Java</span>
+                            <span class="topic-duration">0:12:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Literal</span>
+                            <span class="topic-duration">0:04:21</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Type conversion</span>
+                            <span class="topic-duration">0:12:31</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Assignment Operators</span>
+                            <span class="topic-duration">0:10:12</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Relational Operators</span>
+                            <span class="topic-duration">0:08:03</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Logical Operators</span>
+                            <span class="topic-duration">0:11:12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Flow -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Control Flow & Decision Making</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">If Else</span>
+                            <span class="topic-duration">0:12:58</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">If Else if</span>
+                            <span class="topic-duration">0:05:33</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Ternary</span>
+                            <span class="topic-duration">0:04:33</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Switch Statement</span>
+                            <span class="topic-duration">0:07:59</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loops -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Loops & Iterations</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Need For Loop</span>
+                            <span class="topic-duration">0:03:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">While Loop</span>
+                            <span class="topic-duration">0:12:23</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Do While Loop</span>
+                            <span class="topic-duration">0:03:13</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">For Loop</span>
+                            <span class="topic-duration">0:13:18</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Which Loop To Use</span>
+                            <span class="topic-duration">0:01:42</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Object-Oriented Programming -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Object-Oriented Programming Basics</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Class And Object Theory</span>
+                            <span class="topic-duration">0:05:42</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Class and Object Practical</span>
+                            <span class="topic-duration">0:15:33</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">JDK JRE JVM</span>
+                            <span class="topic-duration">0:05:19</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Methods</span>
+                            <span class="topic-duration">0:11:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Method Overloading</span>
+                            <span class="topic-duration">0:05:57</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Stack And Heap</span>
+                            <span class="topic-duration">0:12:31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrays and Data Structures -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Arrays & Basic Data Structures</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Need of an Array</span>
+                            <span class="topic-duration">0:03:49</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Creation of Array</span>
+                            <span class="topic-duration">0:07:27</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Multi Dimensional Array</span>
+                            <span class="topic-duration">0:13:02</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Jagged and 3D Array</span>
+                            <span class="topic-duration">0:05:38</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Drawbacks of Array</span>
+                            <span class="topic-duration">0:02:46</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Array of Objects</span>
+                            <span class="topic-duration">0:08:48</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Enhanced for loop</span>
+                            <span class="topic-duration">0:05:25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- String Handling -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>String Handling</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is String</span>
+                            <span class="topic-duration">0:07:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Mutable vs Immutable String</span>
+                            <span class="topic-duration">0:06:19</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">StringBuffer and StringBuilder</span>
+                            <span class="topic-duration">0:05:40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Static and Constructors -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Static, Constructors & Keywords</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Static Variable</span>
+                            <span class="topic-duration">0:07:03</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Static Block</span>
+                            <span class="topic-duration">0:07:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Static Method</span>
+                            <span class="topic-duration">0:04:42</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Encapsulation</span>
+                            <span class="topic-duration">0:11:39</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Getters and Setters</span>
+                            <span class="topic-duration">0:02:51</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">This Keyword</span>
+                            <span class="topic-duration">0:09:41</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Constructor</span>
+                            <span class="topic-duration">0:06:59</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Default vs Parameterized Constructor</span>
+                            <span class="topic-duration">0:05:01</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">This and Super Method</span>
+                            <span class="topic-duration">0:12:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Naming Convention</span>
+                            <span class="topic-duration">0:04:26</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Anonymous Object</span>
+                            <span class="topic-duration">0:04:43</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inheritance -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Inheritance & Polymorphism</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Need of Inheritance</span>
+                            <span class="topic-duration">0:06:15</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is Inheritance</span>
+                            <span class="topic-duration">0:08:44</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Single and Multilevel Inheritance</span>
+                            <span class="topic-duration">0:03:51</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Multiple Inheritance</span>
+                            <span class="topic-duration">0:06:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Method Overriding</span>
+                            <span class="topic-duration">0:07:49</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Packages</span>
+                            <span class="topic-duration">0:12:14</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Access Modifiers</span>
+                            <span class="topic-duration">0:08:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Polymorphism</span>
+                            <span class="topic-duration">0:03:49</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Dynamic Method Dispatch</span>
+                            <span class="topic-duration">0:07:58</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Final Keyword</span>
+                            <span class="topic-duration">0:06:14</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Object Class Equals, toString, hashCode</span>
+                            <span class="topic-duration">0:11:58</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Upcasting and Downcasting</span>
+                            <span class="topic-duration">0:06:36</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Classes and Interfaces -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Abstract Classes, Interfaces & Inner Classes</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Abstract Keyword</span>
+                            <span class="topic-duration">0:12:09</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Inner Class</span>
+                            <span class="topic-duration">0:05:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Anonymous Inner Class</span>
+                            <span class="topic-duration">0:05:08</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Abstract and Anonymous Inner Class</span>
+                            <span class="topic-duration">0:03:11</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is Interface</span>
+                            <span class="topic-duration">0:07:56</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">More on Interfaces</span>
+                            <span class="topic-duration">0:03:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Need of Interface</span>
+                            <span class="topic-duration">0:08:31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enums and Annotations -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Enums, Annotations & Lambda</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is Enum</span>
+                            <span class="topic-duration">0:06:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Enum If and Switch</span>
+                            <span class="topic-duration">0:03:55</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Enum Class</span>
+                            <span class="topic-duration">0:07:46</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is Annotation</span>
+                            <span class="topic-duration">0:07:29</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Functional Interface</span>
+                            <span class="topic-duration">0:03:29</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Lambda Expression</span>
+                            <span class="topic-duration">0:06:08</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Lambda Expression with Return</span>
+                            <span class="topic-duration">0:03:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Types of Interface</span>
+                            <span class="topic-duration">0:04:33</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exception Handling -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Exception Handling & I/O</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">What is Exception</span>
+                            <span class="topic-duration">0:05:16</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Exception Handling Using Try Catch</span>
+                            <span class="topic-duration">0:06:01</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Try with Multiple Catch</span>
+                            <span class="topic-duration">0:10:16</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Exception Hierarchy</span>
+                            <span class="topic-duration">0:04:16</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Exception Throw Keyword</span>
+                            <span class="topic-duration">0:05:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Custom Exception</span>
+                            <span class="topic-duration">0:03:30</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Ducking Exception using Throws</span>
+                            <span class="topic-duration">0:09:54</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">User Input using BufferedReader and Scanner</span>
+                            <span class="topic-duration">0:11:48</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Try with Resources</span>
+                            <span class="topic-duration">0:17:56</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Threading -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Multi-Threading</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Threads</span>
+                            <span class="topic-duration">0:05:12</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Multiple Threads</span>
+                            <span class="topic-duration">0:01:21</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Thread Priority and Sleep</span>
+                            <span class="topic-duration">0:07:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Runnable vs Thread</span>
+                            <span class="topic-duration">0:17:25</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Race Condition</span>
+                            <span class="topic-duration">0:03:30</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Thread States</span>
+                            <span class="topic-duration">0:03:30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collections -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Collections Framework</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Collection API</span>
+                            <span class="topic-duration">0:04:45</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">ArrayList</span>
+                            <span class="topic-duration">0:11:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Set</span>
+                            <span class="topic-duration">0:07:07</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Map</span>
+                            <span class="topic-duration">0:10:02</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Comparator vs Comparable</span>
+                            <span class="topic-duration">0:15:43</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stream API -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Stream API & Modern Java</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Need of Stream API</span>
+                            <span class="topic-duration">0:06:57</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">forEach Method</span>
+                            <span class="topic-duration">0:04:49</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Stream API</span>
+                            <span class="topic-duration">0:09:08</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Map Filter Reduce Sorted</span>
+                            <span class="topic-duration">0:58:59</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Testing Framework</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">JUnit</span>
+                            <span class="topic-duration">2:51:31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Structures and Algorithms -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Data Structures & Algorithms</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">DSA Intro</span>
+                            <span class="topic-duration">0:07:08</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Abstract Data Type</span>
+                            <span class="topic-duration">0:07:11</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Arrays</span>
+                            <span class="topic-duration">0:07:52</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Time Complexity</span>
+                            <span class="topic-duration">0:02:32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Algorithms -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Search Algorithms</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Linear Search</span>
+                            <span class="topic-duration">0:04:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Binary Search</span>
+                            <span class="topic-duration">0:06:32</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Time Complexity</span>
+                            <span class="topic-duration">0:01:45</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Time Complexity for Linear Search</span>
+                            <span class="topic-duration">0:02:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Time Complexity for Binary Search</span>
+                            <span class="topic-duration">0:04:01</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Linear Search & Binary Search</span>
+                            <span class="topic-duration">0:01:05</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Linear Search</span>
+                            <span class="topic-duration">0:06:12</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Binary Search (Using While Loop)</span>
+                            <span class="topic-duration">0:08:34</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Binary Search (Using Recursion)</span>
+                            <span class="topic-duration">0:03:24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sorting Algorithms -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Sorting Algorithms</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Sorting Techniques</span>
+                            <span class="topic-duration">0:00:43</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Sorting</span>
+                            <span class="topic-duration">0:01:27</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Bubble Sort</span>
+                            <span class="topic-duration">0:05:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Bubble Sort</span>
+                            <span class="topic-duration">0:08:10</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Selection Sort</span>
+                            <span class="topic-duration">0:06:55</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Selection Sort</span>
+                            <span class="topic-duration">0:07:13</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Insertion Sort</span>
+                            <span class="topic-duration">0:07:20</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Insertion Sort</span>
+                            <span class="topic-duration">0:12:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Quick Sort</span>
+                            <span class="topic-duration">0:06:39</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Example for Quick Sort (Logic)</span>
+                            <span class="topic-duration">0:14:39</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Example for Quick Sort (Code)</span>
+                            <span class="topic-duration">0:06:59</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Merge Sort</span>
+                            <span class="topic-duration">0:10:05</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Example for Merge Sort (Logic)</span>
+                            <span class="topic-duration">0:06:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Example for Merge Sort (Code)</span>
+                            <span class="topic-duration">0:11:29</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Data Structures -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Advanced Data Structures</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Linked List</span>
+                            <span class="topic-duration">0:13:23</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Linked List</span>
+                            <span class="topic-duration">0:05:02</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Insert</span>
+                            <span class="topic-duration">0:07:54</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Show</span>
+                            <span class="topic-duration">0:07:33</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">InsertAtStart</span>
+                            <span class="topic-duration">0:03:02</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">InsertAt</span>
+                            <span class="topic-duration">0:08:32</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">DeleteAt</span>
+                            <span class="topic-duration">0:05:14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stack Implementation -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Stack Implementation</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Stack</span>
+                            <span class="topic-duration">0:09:00</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Stack (Fixed Size Array)</span>
+                            <span class="topic-duration">0:01:17</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Push</span>
+                            <span class="topic-duration">0:03:30</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Show</span>
+                            <span class="topic-duration">0:00:50</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Pop</span>
+                            <span class="topic-duration">0:02:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Peek</span>
+                            <span class="topic-duration">0:01:40</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Size</span>
+                            <span class="topic-duration">0:01:18</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">IsEmpty</span>
+                            <span class="topic-duration">0:05:34</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Stack (Dynamic Size Array)</span>
+                            <span class="topic-duration">0:12:59</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queue Implementation -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Queue Implementation</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Queue</span>
+                            <span class="topic-duration">0:04:47</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Queue</span>
+                            <span class="topic-duration">0:00:47</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Enqueue</span>
+                            <span class="topic-duration">0:01:47</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Show</span>
+                            <span class="topic-duration">0:02:11</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Dequeue</span>
+                            <span class="topic-duration">0:10:10</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Size</span>
+                            <span class="topic-duration">0:01:00</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">IsEmpty</span>
+                            <span class="topic-duration">0:00:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">IsFull</span>
+                            <span class="topic-duration">0:02:39</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tree Data Structure -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Tree Data Structure</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Tree</span>
+                            <span class="topic-duration">0:00:10</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Binary Tree</span>
+                            <span class="topic-duration">0:05:40</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Binary Search Tree</span>
+                            <span class="topic-duration">0:01:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Code for Binary Search Tree (Insert)</span>
+                            <span class="topic-duration">0:00:57</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Insert</span>
+                            <span class="topic-duration">0:08:05</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Tree Traversal (InOrder)</span>
+                            <span class="topic-duration">0:05:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Tree Traversal (PreOrder)</span>
+                            <span class="topic-duration">0:00:43</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Git Version Control -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Version Control</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Git</span>
+                            <span class="topic-duration">1:50:30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Java Topics -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Core Java Topics</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Servlet and JSP Intro</span>
+                            <span class="topic-duration">0:00:10</span>
+                        </div>
+                        <div class="topic-item subtopic">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Servlet</span>
+                            <span class="topic-duration">1:20:10</span>
+                        </div>
+                        <div class="topic-item subtopic">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">JSP</span>
+                            <span class="topic-duration">1:38:03</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">JSTL</span>
+                            <span class="topic-duration">1:21:02</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hibernate Section -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Hibernate Section</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Introduction to Hibernate</span>
+                            <span class="topic-duration">0:02:15</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Prerequisites for Hibernate</span>
+                            <span class="topic-duration">0:02:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Hibernate Theory</span>
+                            <span class="topic-duration">0:09:44</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Hibernate Practical</span>
+                            <span class="topic-duration">0:11:57</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">How to Add Hibernate Plugin in Eclipse</span>
+                            <span class="topic-duration">0:01:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Configuration File</span>
+                            <span class="topic-duration">0:07:15</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Working</span>
+                            <span class="topic-duration">0:04:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Show SQL Property</span>
+                            <span class="topic-duration">0:03:22</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Annotation</span>
+                            <span class="topic-duration">0:04:47</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Fetch Data Using Hibernate</span>
+                            <span class="topic-duration">0:04:32</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">How to Use Embeddable Object</span>
+                            <span class="topic-duration">0:07:52</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Mapping Relations Theory</span>
+                            <span class="topic-duration">0:13:04</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Mapping Relations Practical</span>
+                            <span class="topic-duration">2:06:02</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Rest API Web Service</span>
+                            <span class="topic-duration">0:26:03</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">JPA</span>
+                            <span class="topic-duration">0:00:57</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spring Framework Section -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Spring Framework Section</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Introduction to Spring</span>
+                            <span class="topic-duration">0:08:01</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring</span>
+                            <span class="topic-duration">0:01:56</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring Documentation</span>
+                            <span class="topic-duration">0:02:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Prerequisites</span>
+                            <span class="topic-duration">0:02:12</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Software Requirements</span>
+                            <span class="topic-duration">0:02:27</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">STS Setup</span>
+                            <span class="topic-duration">0:05:31</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Dependency Injection in Spring</span>
+                            <span class="topic-duration">0:05:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Creating Spring Starter Project</span>
+                            <span class="topic-duration">0:05:11</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Dependency Injection in Spring Boot</span>
+                            <span class="topic-duration">0:05:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring Boot Autowire</span>
+                            <span class="topic-duration">0:03:48</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Bean Factory</span>
+                            <span class="topic-duration">0:12:15</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Application Context</span>
+                            <span class="topic-duration">0:02:42</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring Container</span>
+                            <span class="topic-duration">0:06:07</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Singleton vs Prototype</span>
+                            <span class="topic-duration">0:02:57</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Setter Injection</span>
+                            <span class="topic-duration">0:08:40</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Constructor Injection</span>
+                            <span class="topic-duration">0:04:07</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Autowire</span>
+                            <span class="topic-duration">0:08:33</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Primary</span>
+                            <span class="topic-duration">0:02:03</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring JDBC</span>
+                            <span class="topic-duration">0:29:25</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring MVC</span>
+                            <span class="topic-duration">0:30:29</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spring Boot MVC -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Spring Boot MVC</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">@RequestParam</span>
+                            <span class="topic-duration">0:02:53</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Model</span>
+                            <span class="topic-duration">0:00:50</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">ModelMap vs Model</span>
+                            <span class="topic-duration">0:10:28</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">@ModelAttribute as a Parameter</span>
+                            <span class="topic-duration">0:02:56</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">@ModelAttribute as a Method</span>
+                            <span class="topic-duration">0:26:48</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring ORM Theory</span>
+                            <span class="topic-duration">0:31:06</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring Data JPA</span>
+                            <span class="topic-duration">0:28:28</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REST API and Projects -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>REST API and Projects</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">REST</span>
+                            <span class="topic-duration">0:00:04</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Rest API Using Spring Boot</span>
+                            <span class="topic-duration">0:36:15</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Java Project</span>
+                            <span class="topic-duration">0:00:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Project Using Spring Boot MVC</span>
+                            <span class="topic-duration">2:28:38</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Java Spring Boot MongoDB Full Project</span>
+                            <span class="topic-duration">1:15:20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Spring Topics -->
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span>Advanced Spring Topics</span>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring AOP</span>
+                            <span class="topic-duration">0:20:52</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Spring Security → Login</span>
+                            <span class="topic-duration">0:12:18</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">How to Create User and Password in Memory → Configuration
+                                File</span>
+                            <span class="topic-duration">0:03:59</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">How to Fetch and Store User and Password in a DB</span>
+                            <span class="topic-duration">0:06:34</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Creating User Class</span>
+                            <span class="topic-duration">0:04:46</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Creating Service (UserDetailService) and Setting Password
+                                Encoder</span>
+                            <span class="topic-duration">0:01:05</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Creating UserDetails Implementation</span>
+                            <span class="topic-duration">0:05:00</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Recap</span>
+                            <span class="topic-duration">0:01:35</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">BCrypt Password Encoder</span>
+                            <span class="topic-duration">0:06:20</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Customize Login</span>
+                            <span class="topic-duration">0:19:37</span>
+                        </div>
+                        <div class="topic-item">
+                            <input type="checkbox" class="topic-checkbox" onchange="updateProgress()">
+                            <span class="topic-title">Microservice</span>
+                            <span class="topic-duration">Remaining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
