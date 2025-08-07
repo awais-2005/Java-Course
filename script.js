@@ -74,13 +74,14 @@ function saveProgress() {
         progress[index] = checkbox.checked;
     });
 
-    // Save to memory for this session
-    window.javaCourseTodoProgress = progress;
+    // Save to localStorage for persistence
+    localStorage.setItem('javaCourseTodoProgress', JSON.stringify(progress));
 }
 
 function loadProgress() {
-    const progress = window.javaCourseTodoProgress;
-    if (progress) {
+    const progressStr = localStorage.getItem('javaCourseTodoProgress');
+    if (progressStr) {
+        const progress = JSON.parse(progressStr);
         const checkboxes = document.querySelectorAll('.topic-checkbox');
         checkboxes.forEach((checkbox, index) => {
             if (progress[index]) {
@@ -91,5 +92,5 @@ function loadProgress() {
 }
 
 function clearSavedProgress() {
-    window.javaCourseTodoProgress = null;
+    localStorage.removeItem('javaCourseTodoProgress');
 }

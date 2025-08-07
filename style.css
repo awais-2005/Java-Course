@@ -66,7 +66,7 @@ body {
     overflow-y: auto;
 }
 
-.section, .CurrentPosition {
+.section {
     margin-bottom: 25px;
     border: 2px solid #ffc107;
     border-radius: 10px;
@@ -85,20 +85,6 @@ body {
     align-items: center;
     transition: background 0.3s ease;
 }
-
-.CurrentPosition {
-    background: #ff9100;
-    width: 93%;
-    padding: 15px 20px;
-    margin-left: 3.5%;
-    color: grey;
-    font-size: 1.2em;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .section-header:hover {
     background: #ffb300;
 }
