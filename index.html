@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVA://ROADMAP — The Elite Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #14100D;
+      --bg-grad: #191410;
+      --surface: #1D1712;
+      --surface-2: #262019;
+      --surface-3: #302820;
+      --text: #EFE7DA;
+      --text-muted: #9C8D7C;
+      --text-dim: #6E6153;
+      --amber: #E3A544;
+      --amber-dim: #8A6A34;
+      --green: #6DB33F;
+      --green-dim: #3E5F27;
+      --red: #D14B3D;
+      --line: #362D23;
+      --line-soft: #2A231C;
+      --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      --radius: 10px;
+      --shadow: 0 8px 28px rgba(0, 0, 0, .35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1100px 500px at 15% -10%, rgba(227, 165, 68, .07), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(109, 179, 63, .05), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--amber);
+      color: #1a1408;
+    }
+
+    a {
+      color: var(--amber);
+    }
+
+    .scanline {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: repeating-linear-gradient(180deg, rgba(255, 255, 255, .012) 0px, rgba(255, 255, 255, .012) 1px, transparent 1px, transparent 3px);
+      mix-blend-mode: overlay;
+    }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(20, 16, 13, .86);
+      backdrop-filter: blur(10px) saturate(1.1);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-glyph {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--green);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 8px;
+      letter-spacing: -1px;
+    }
+
+    .brand-slash {
+      color: var(--amber);
+    }
+
+    .brand-sub {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      margin: 2px 0 0;
+      font-family: var(--mono);
+    }
+
+    .brand-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-ghost,
+    .dsaBtn {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .btn-ghost:hover,
+    .dsaBtn:hover {
+      color: var(--text);
+      border-color: var(--amber-dim);
+      background: var(--surface);
+    }
+
+    .dsaBtn {
+      text-decoration: none;
+    }
+
+    .btn-ghost:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 2px;
+    }
+
+    .btn-danger:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    /* ---------- Layout ---------- */
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 22px 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-family: var(--mono);
+      font-size: 15px;
+      letter-spacing: .3px;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--amber);
+      margin: 18px 0 8px;
+    }
+
+    /* ---------- About panel ---------- */
+    .about-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      animation: fadeSlide .35s ease;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+    }
+
+    .about-copy {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin: 0 0 4px;
+    }
+
+    .rules-list,
+    .setup-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .rules-list li,
+    .setup-list li {
+      margin-bottom: 7px;
+    }
+
+    .setup-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .setup-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      padding: 3px 0;
+    }
+
+    .setup-item input {
+      margin-top: 3px;
+      accent-color: var(--green);
+    }
+
+    .setup-item.done span {
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+
+    @media (max-width:720px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #btnAbout {
+        display: none;
+      }
+    }
+
+    /* ---------- Stat strip ---------- */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    @media (max-width:760px) {
+      .stat-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .stat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
+    }
+
+    .stat-dot.live {
+      background: var(--green);
+      box-shadow: 0 0 8px 1px rgba(109, 179, 63, .7);
+      animation: pulse 2s infinite;
+    }
+
+    .stat-dot.idle {
+      background: var(--amber);
+      box-shadow: 0 0 8px 1px rgba(227, 165, 68, .6);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .4;
+      }
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .stat-value-sm {
+      font-size: 34px;
+    }
+
+    .stat-unit {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      font-family: var(--sans);
+      font-weight: 400;
+    }
+
+    .stat-foot {
+      margin-top: 8px;
+      font-size: 11.5px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+    }
+
+    .segbar {
+      display: flex;
+      gap: 2px;
+      margin-top: 12px;
+      height: 8px;
+    }
+
+    .seg {
+      flex: 1;
+      border-radius: 2px;
+      background: var(--surface-3);
+    }
+
+    .seg.on {
+      background: var(--amber);
+    }
+
+    .next-body {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .next-day {
+      font-family: var(--mono);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--green);
+      min-width: 56px;
+    }
+
+    .next-focus {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .next-phase {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      margin-top: 3px;
+    }
+
+    .btn-resume {
+      width: 100%;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      background: var(--green-dim);
+      color: #dff3d3;
+      border: 1px solid var(--green);
+      border-radius: 7px;
+      padding: 9px 12px;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .btn-resume:hover {
+      background: var(--green);
+      color: #0f1a08;
+    }
+
+    .stat-next.all-done .next-day {
+      color: var(--amber);
+    }
+
+    /* ---------- Pipeline (signature element) ---------- */
+    .pipeline-wrap {
+      margin-bottom: 20px;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      overflow-x: auto;
+      padding: 4px 2px 12px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line) transparent;
+    }
+
+    .pipeline::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .pipeline::-webkit-scrollbar-thumb {
+      background: var(--line);
+      border-radius: 3px;
+    }
+
+    .stage {
+      flex: 0 0 auto;
+      width: 118px;
+      text-align: left;
+      cursor: pointer;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 10px 9px;
+      margin-right: 0;
+      position: relative;
+      transition: .15s ease;
+      font-family: var(--mono);
+      color: var(--text-muted);
+    }
+
+    .stage+.stage {
+      margin-left: 10px;
+    }
+
+    .stage::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: 10px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .stage.complete::before {
+      background: var(--green);
+    }
+
+    .stage:hover {
+      border-color: var(--amber-dim);
+      transform: translateY(-1px);
+    }
+
+    .stage-index {
+      font-size: 10px;
+      color: var(--text-dim);
+      display: block;
+    }
+
+    .stage-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-top: 4px;
+      line-height: 1.25;
+      min-height: 27px;
+      letter-spacing: .2px;
+    }
+
+    .stage-meta {
+      font-size: 10px;
+      color: var(--text-dim);
+      display: block;
+      margin-top: 6px;
+    }
+
+    .stage-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: var(--surface-3);
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .stage-bar span {
+      display: block;
+      height: 100%;
+      background: var(--amber);
+    }
+
+    .stage.complete {
+      border-color: var(--green-dim);
+    }
+
+    .stage.complete .stage-index {
+      color: var(--green);
+    }
+
+    .stage.complete .stage-bar span {
+      background: var(--green);
+    }
+
+    .stage.current {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 1px var(--amber) inset;
+    }
+
+    .stage.current .stage-index {
+      color: var(--amber);
+    }
+
+    .stage.pending {
+      opacity: .55;
+    }
+
+    /* ---------- Controls ---------- */
+    .controls {
+      position: sticky;
+      top: 65px;
+      z-index: 10;
+      background: var(--bg);
+      padding: 10px 0 12px;
+    }
+
+    .controls-inner {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 7px;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--amber-dim);
+      color: #fff3dc;
+      border-color: var(--amber);
+    }
+
+    /* ---------- Day list ---------- */
+    .phase-section {
+      margin-bottom: 8px;
+      scroll-margin-top: 150px;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 18px 4px 8px;
+      border-bottom: 1px solid var(--line-soft);
+      margin-bottom: 8px;
+    }
+
+    .phase-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .phase-index {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--amber);
+    }
+
+    .phase-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .phase-days-range {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .phase-habit-pill {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid var(--green-dim);
+      border-radius: 20px;
+      padding: 2px 8px;
+    }
+
+    .phase-progress {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .phase-blurb {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin: 0 0 10px;
+      max-width: 640px;
+    }
+
+    .day-card {
+      border: 1px solid var(--line-soft);
+      border-radius: 9px;
+      background: var(--surface);
+      margin-bottom: 7px;
+      overflow: hidden;
+      transition: border-color .15s ease, background .15s ease;
+    }
+
+    .day-card:hover {
+      border-color: var(--line);
+    }
+
+    .day-card.done {
+      background: linear-gradient(180deg, rgba(109, 179, 63, .06), transparent 40%), var(--surface);
+    }
+
+    .day-card.done .day-focus-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--green-dim);
+    }
+
+    .day-card.checkpoint {
+      border-color: var(--amber-dim);
+    }
+
+    .day-card.hidden-by-filter {
+      display: none;
+    }
+
+    .day-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .chk {
+      flex: 0 0 auto;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--line-soft);
+      cursor: pointer;
+      color: var(--text-dim);
+    }
+
+    .chk svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .day-card.done .chk {
+      color: var(--green);
+    }
+
+    .chk:hover {
+      background: var(--surface-2);
+    }
+
+    .day-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 12px;
+      min-height: 46px;
+      cursor: pointer;
+    }
+
+    .day-num {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--text-dim);
+      min-width: 38px;
+    }
+
+    .day-focus-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .cp-badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .5px;
+      color: #1a1408;
+      background: var(--amber);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+
+    .chevron {
+      color: var(--text-dim);
+      font-size: 11px;
+      transition: transform .15s ease;
+      flex: 0 0 auto;
+      padding-right: 2px;
+    }
+
+    .day-card.expanded .chevron {
+      transform: rotate(180deg);
+    }
+
+    .day-detail {
+      display: none;
+      padding: 2px 16px 16px 58px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .day-card.expanded .day-detail {
+      display: block;
+      animation: fadeSlide .18s ease;
+    }
+
+    .detail-block {
+      margin-bottom: 10px;
+    }
+
+    .detail-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .detail-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .journal-box {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      border-radius: 7px;
+      padding: 9px 10px;
+      resize: vertical;
+      min-height: 56px;
+    }
+
+    .journal-box::placeholder {
+      color: var(--text-dim);
+    }
+
+    .journal-hint {
+      font-size: 10.5px;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 40px 0;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-stats {
+      display: flex;
+      gap: 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .footer-stats strong {
+      color: var(--text);
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin: 10px 0 0;
+    }
+
+    /* ---------- Toasts ---------- */
+    .toast-stack {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .toast {
+      background: var(--surface-2);
+      border: 1px solid var(--amber-dim);
+      border-left: 3px solid var(--amber);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12.5px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      max-width: 290px;
+      animation: toastIn .25s ease;
+    }
+
+    .toast .toast-sub {
+      color: var(--text-dim);
+      font-size: 11px;
+      margin-top: 3px;
+      font-family: var(--sans);
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .toast.leaving {
+      animation: toastOut .25s ease forwards;
+    }
+
+    @keyframes toastOut {
+      to {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+    }
+
+    /* ---------- Confetti ---------- */
+    .confetti-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -12px;
+      width: 7px;
+      height: 12px;
+      opacity: .9;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(105vh) rotate(240deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+    }
+
+    @media (max-width:600px) {
+      .stat-value {
+        font-size: 28px;
+      }
+
+      .day-detail {
+        padding-left: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scanline" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-glyph">
+          <i class="fa-solid fa-terminal"></i>
+        </span>
+        <div class="brand-text">
+          <h1 class="brand-sub">Backend Engineering Roadmap
+            <h1 />
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="dsaBtn" href="./DSA.html">Jump to DSA</a>
+        <button class="btn-ghost" id="btnAbout" type="button">Readme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="about-panel" id="aboutPanel" hidden>
+      <div class="about-grid">
+        <div class="about-col">
+          <h2 class="section-title">Read this first</h2>
+          <p class="about-copy">No roadmap will make you out-perform a decade of real production experience &mdash; the
+            3&nbsp;a.m. outages and scars from decisions that didn't pan out only come from time on the job. What this
+            gives you instead is depth: JVM internals, distributed systems, database engineering, security, system
+            design &mdash; the things most working engineers never deliberately study. Finish this and you'll out-know a
+            large share of &ldquo;senior&rdquo; developers whose ten years were one year of learning, repeated ten
+            times.</p>
+          <h3 class="section-subtitle">Ground rules</h3>
+          <ul class="rules-list">
+            <li>Write code every day &mdash; reading about a topic doesn't count, build the practice task.</li>
+            <li>Commit to GitHub daily, even small progress. A visible history is part of the proof.</li>
+            <li>From Day 29 onward, solve one DSA problem a day, on top of that day's topic.</li>
+            <li>Keep a running technical journal &mdash; 3&ndash;5 sentences per day, Feynman-style. Use the journal box
+              under each day below.</li>
+            <li>2&ndash;3 hrs/day is a target, not a ceiling. Let dense days bleed into the next one &mdash; treat 200
+              days as ~7&ndash;8 months, not a rigid sprint.</li>
+            <li>The 7 checkpoint days and the Phase 13 capstone are non-negotiable &mdash; that's where scattered
+              knowledge becomes a system you can defend.</li>
+          </ul>
+        </div>
+        <div class="about-col">
+          <h3 class="section-subtitle">Before Day 1 &mdash; environment setup</h3>
+          <ul class="setup-list" id="setupList"></ul>
+          <h3 class="section-subtitle">Beyond Day 200</h3>
+          <ul class="rules-list">
+            <li>Read the source of Spring Core / Spring Boot itself, not just the docs.</li>
+            <li>Contribute to an open-source Java/Spring project.</li>
+            <li>Go deeper into one specialization &mdash; elite engineers are T-shaped, not uniformly deep everywhere.
+            </li>
+            <li>Follow Java and Spring Boot release notes. Staying current is itself a skill.</li>
+            <li>Keep doing monthly mock interviews, even once employed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="stat-strip" aria-label="Progress overview">
+      <div class="stat-card stat-uptime">
+        <div class="stat-head">
+          <span class="stat-dot" id="uptimeDot"></span>
+          <span class="stat-label">uptime</span>
+        </div>
+        <div class="stat-value"><span id="streakNum">0</span><span class="stat-unit">day streak</span></div>
+        <div class="stat-foot">best run: <span id="bestStreak">0</span> days</div>
+      </div>
+
+      <div class="stat-card stat-build">
+        <div class="stat-head"><span class="stat-label">build progress</span></div>
+        <div class="stat-value stat-value-sm"><span id="progressPct">0</span><span class="stat-unit">%</span></div>
+        <div class="segbar" id="segbar" aria-hidden="true"></div>
+        <div class="stat-foot"><span id="doneCount">0</span> / 200 days shipped &middot; ~<span
+            id="hoursLogged">0</span>h logged</div>
+      </div>
+
+      <div class="stat-card stat-next" id="nextCard">
+        <div class="stat-head"><span class="stat-label">next up</span></div>
+        <div class="next-body">
+          <div class="next-day" id="nextDayNum">&mdash;</div>
+          <div class="next-info">
+            <div class="next-focus" id="nextFocus">All 200 days complete</div>
+            <div class="next-phase" id="nextPhase"></div>
+          </div>
+        </div>
+        <button class="btn-resume" id="btnResume" type="button">Resume</button>
+      </div>
+    </section>
+
+    <section class="pipeline-wrap" aria-label="Phase pipeline">
+      <div class="pipeline" id="pipeline"></div>
+    </section>
+
+    <section class="controls">
+      <div class="controls-inner">
+        <input type="search" id="searchBox" class="search-input" placeholder="Search topics, tasks, keywords&hellip;"
+          aria-label="Search days">
+        <div class="filter-group" role="group" aria-label="Filter by status">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="pending" type="button">Pending</button>
+          <button class="filter-btn" data-filter="done" type="button">Completed</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="day-list" id="dayList" aria-label="Roadmap days"></section>
+
+    <p class="empty-state" id="emptyState" hidden>No days match that search.</p>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-stats">
+          <span><strong id="footDone">0</strong>/200 shipped</span>
+          <span><strong id="footStreak">0</strong> day streak</span>
+          <span><strong id="footBest">0</strong> best streak</span>
+        </div>
+        <div class="footer-actions">
+          <button class="btn-ghost" id="btnExport" type="button">Export progress</button>
+          <button class="btn-ghost" id="btnImportTrigger" type="button">Import</button>
+          <input type="file" id="importFile" accept="application/json" hidden>
+          <button class="btn-ghost btn-danger" id="btnReset" type="button">Reset</button>
+        </div>
+      </div>
+      <p class="footer-note">Progress is stored only in this browser's local storage. Export a backup before clearing
+        site data.</p>
+    </footer>
+
+  </main>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <script>
+
+    (function () {
+      "use strict";
+
+      var DATA = { "phases": [{ "id": 1, "title": "Java Core & Modern Java Mastery", "range": "1–18", "hours": 45, "blurb": "Rebuilding Java from the JVM up — memory, concurrency, and collections internals." }, { "id": 2, "title": "OOP Mastery, Design Patterns & Clean Code", "range": "19–28", "hours": 25, "blurb": "The design vocabulary and instincts used in every code review, for the rest of a career." }, { "id": 3, "title": "DSA Sprint: Applied Problem Solving", "range": "29–35", "hours": 18, "blurb": "The core toolkit for technical interviews and 'why is this endpoint slow' debugging." }, { "id": 4, "title": "Spring Framework Core & Spring Boot", "range": "36–55", "hours": 55, "blurb": "Understanding what the container is actually doing, then building a production-shaped REST API." }, { "id": 5, "title": "Data Persistence Mastery", "range": "56–78", "hours": 60, "blurb": "SQL, transactions, and JPA/Hibernate internals — the highest-leverage topic for interviews and production." }, { "id": 6, "title": "API Design, Testing & Quality", "range": "79–95", "hours": 45, "blurb": "Predictable, documented APIs backed by tests that actually catch regressions." }, { "id": 7, "title": "Security Engineering", "range": "96–108", "hours": 35, "blurb": "Security as a design discipline — understanding mechanisms well enough to defend design choices." }, { "id": 8, "title": "Caching, Messaging & Async Architecture", "range": "109–122", "hours": 38, "blurb": "The shift from 'an API' to 'a system' — designing things that don't run synchronously in-process." }, { "id": 9, "title": "Microservices & Distributed Systems", "range": "123–140", "hours": 48, "blurb": "Reasoning about systems that fail partially, over unreliable networks, without one transaction to rely on." }, { "id": 10, "title": "DevOps, Containers & Observability", "range": "141–155", "hours": 40, "blurb": "Shipping, running, and actually seeing what the code is doing in production." }, { "id": 11, "title": "System Design Mastery", "range": "156–170", "hours": 40, "blurb": "Designing systems from a blank page — the exact skill senior/staff interviews test." }, { "id": 12, "title": "Performance Engineering & Advanced Architecture", "range": "171–178", "hours": 22, "blurb": "Making systems fast under real load, and documenting the trade-offs behind every decision." }, { "id": 13, "title": "Capstone Project & Interview Readiness", "range": "179–200", "hours": 55, "blurb": "A multi-service, production-shaped system end to end — then defending every decision in it." }], "days": [{ "day": 1, "phase": 1, "focus": "JVM Architecture Overview", "learn": "Classloader subsystem; Runtime Data Areas (Heap, Stack, Method Area, PC Register, Native Stack); how .java becomes bytecode and executes.", "task": "Draw the JVM architecture from memory. Compile and run a class with -verbose:class and explain the output.", "checkpoint": false }, { "day": 2, "phase": 1, "focus": "Memory Management Deep Dive", "learn": "Heap structure (Young/Old Gen, Eden, Survivor spaces); stack frames; escape analysis basics.", "task": "Write a small program and observe live heap behavior in VisualVM or JConsole.", "checkpoint": false }, { "day": 3, "phase": 1, "focus": "Garbage Collection Algorithms", "learn": "Serial, Parallel, CMS, G1, ZGC — how each works and when it's chosen; key GC tuning flags.", "task": "Run a program with -Xlog:gc and interpret the GC log output line by line.", "checkpoint": false }, { "day": 4, "phase": 1, "focus": "Java Memory Model (JMM)", "learn": "Happens-before relationship, visibility, instruction reordering, the volatile keyword's real guarantees.", "task": "Write a race-condition demo with a plain boolean flag across threads, then fix it with volatile.", "checkpoint": false }, { "day": 5, "phase": 1, "focus": "equals(), hashCode(), Object Contract", "learn": "Why both must be overridden together; the hashCode contract; IdentityHashMap.", "task": "Implement a class with a correct equals/hashCode pair and unit tests that prove the contract holds.", "checkpoint": false }, { "day": 6, "phase": 1, "focus": "String Internals", "learn": "String pool, immutability rationale, StringBuilder vs StringBuffer, intern().", "task": "Benchmark String concatenation vs StringBuilder over 100k iterations; explain the gap.", "checkpoint": false }, { "day": 7, "phase": 1, "focus": "Collections Internals I — Lists", "learn": "ArrayList vs LinkedList internals, resizing strategy, fail-fast iterators and ConcurrentModificationException.", "task": "Implement a simplified ArrayList from scratch (add, get, resize).", "checkpoint": false }, { "day": 8, "phase": 1, "focus": "Collections Internals II — Maps", "learn": "HashMap internals: buckets, hashing, treeification (Java 8+), load factor, resize triggers.", "task": "Implement a simplified HashMap with put/get and chaining-based collision handling.", "checkpoint": false }, { "day": 9, "phase": 1, "focus": "Collections Internals III — Sorted & Ordered", "learn": "TreeMap/TreeSet (red-black tree basis), Comparable vs Comparator, PriorityQueue.", "task": "Build a multi-field sorting pipeline using chained Comparators.", "checkpoint": false }, { "day": 10, "phase": 1, "focus": "Concurrent Collections", "learn": "ConcurrentHashMap internals (segment/bin locking), CopyOnWriteArrayList, BlockingQueue.", "task": "Build a producer-consumer pipeline using BlockingQueue.", "checkpoint": false }, { "day": 11, "phase": 1, "focus": "Generics Deep Dive", "learn": "Bounded types, wildcards (? extends / ? super), type erasure, the PECS principle.", "task": "Write a generic repository interface using correctly bounded types.", "checkpoint": false }, { "day": 12, "phase": 1, "focus": "Exception Handling Mastery", "learn": "Checked vs unchecked, custom exception hierarchies, try-with-resources, exception chaining.", "task": "Design a full exception hierarchy for a banking domain.", "checkpoint": false }, { "day": 13, "phase": 1, "focus": "Functional Interfaces & Lambdas", "learn": "Function, Supplier, Consumer, Predicate, BiFunction; method references.", "task": "Refactor five imperative loops into functional-style equivalents.", "checkpoint": false }, { "day": 14, "phase": 1, "focus": "Streams API I", "learn": "map/filter/reduce, Collectors, grouping, partitioning.", "task": "Solve five data-transformation problems using only the Streams API.", "checkpoint": false }, { "day": 15, "phase": 1, "focus": "Streams API II", "learn": "Parallel streams, the ForkJoinPool underneath, when parallel streams hurt more than help.", "task": "Benchmark a sequential vs parallel stream on a CPU-bound task and explain the result.", "checkpoint": false }, { "day": 16, "phase": 1, "focus": "Optional & Null Safety", "learn": "Correct Optional usage patterns vs common anti-patterns (Optional as a field, get() without check).", "task": "Refactor null-check-heavy code to use Optional idiomatically.", "checkpoint": false }, { "day": 17, "phase": 1, "focus": "Multithreading Fundamentals", "learn": "Thread vs Runnable, thread lifecycle, synchronized, wait/notify, intrinsic locks.", "task": "Build a thread-safe counter; first reproduce the race condition unsynchronized, then fix it.", "checkpoint": false }, { "day": 18, "phase": 1, "focus": "Concurrency Utilities", "learn": "ExecutorService, Future, CompletableFuture, thread pool types, ReentrantLock, Semaphore, CountDownLatch.", "task": "Build a parallel API/file fetcher using ExecutorService + CompletableFuture composition.", "checkpoint": false }, { "day": 19, "phase": 2, "focus": "SOLID Principles I", "learn": "Single Responsibility & Open/Closed, with before/after refactor examples.", "task": "Refactor a \"god class\" that violates SRP into cohesive collaborators.", "checkpoint": false }, { "day": 20, "phase": 2, "focus": "SOLID Principles II", "learn": "Liskov Substitution, Interface Segregation, Dependency Inversion.", "task": "Refactor tightly-coupled classes to depend on abstractions (DIP) via interfaces.", "checkpoint": false }, { "day": 21, "phase": 2, "focus": "Creational Design Patterns", "learn": "Singleton (thread-safe variants), Factory Method, Abstract Factory, Builder.", "task": "Implement a Builder for a complex multi-field Order object.", "checkpoint": false }, { "day": 22, "phase": 2, "focus": "Structural Design Patterns", "learn": "Adapter, Decorator, Facade, Proxy.", "task": "Implement a Decorator chain for a notification system (Email/SMS/Push).", "checkpoint": false }, { "day": 23, "phase": 2, "focus": "Behavioral Patterns I", "learn": "Strategy, Observer, Command.", "task": "Implement the Strategy pattern for pluggable payment processing.", "checkpoint": false }, { "day": 24, "phase": 2, "focus": "Behavioral Patterns II", "learn": "Template Method, Chain of Responsibility, State.", "task": "Implement a request-validation pipeline using Chain of Responsibility.", "checkpoint": false }, { "day": 25, "phase": 2, "focus": "Clean Code Principles", "learn": "Naming, function size, comment discipline, common code smells and their fixes.", "task": "Refactor your existing CRUD app end-to-end applying clean-code rules.", "checkpoint": false }, { "day": 26, "phase": 2, "focus": "Domain-Driven Design — Building Blocks", "learn": "Entities, Value Objects, Aggregates, Repositories, Bounded Contexts.", "task": "Model an e-commerce order domain using DDD building blocks on paper.", "checkpoint": false }, { "day": 27, "phase": 2, "focus": "Architectural Layering", "learn": "Layered architecture vs Hexagonal (Ports & Adapters); why dependency direction matters.", "task": "Sketch a hexagonal architecture diagram for your CRUD app.", "checkpoint": false }, { "day": 28, "phase": 2, "focus": "DSA Warm-Up", "learn": "Big-O refresher; array/string/hash-map problem patterns.", "task": "Solve 3 medium array/hash-map problems (LeetCode or similar).", "checkpoint": false }, { "day": 29, "phase": 3, "focus": "Recursion & Backtracking", "learn": "Call-stack mental model, base cases, backtracking template.", "task": "Solve 2 recursion/backtracking problems.", "checkpoint": false }, { "day": 30, "phase": 3, "focus": "Sorting Algorithms", "learn": "Merge sort and quicksort implementations; when each is preferred; complexity proofs.", "task": "Implement quicksort and mergesort from scratch.", "checkpoint": false }, { "day": 31, "phase": 3, "focus": "Trees", "learn": "Binary trees, BSTs, DFS/BFS traversals.", "task": "Implement BST insert/search/delete plus a level-order traversal.", "checkpoint": false }, { "day": 32, "phase": 3, "focus": "Graphs I", "learn": "Adjacency list vs matrix; BFS and DFS.", "task": "Implement graph BFS/DFS and solve a connected-components style problem.", "checkpoint": false }, { "day": 33, "phase": 3, "focus": "Graphs II", "learn": "Dijkstra's algorithm; topological sort.", "task": "Implement Dijkstra's algorithm on a weighted graph.", "checkpoint": false }, { "day": 34, "phase": 3, "focus": "Heaps & Priority Queues", "learn": "Heap operations; top-K problem pattern.", "task": "Solve 2 heap-based problems (e.g. k largest elements, merge k lists).", "checkpoint": false }, { "day": 35, "phase": 3, "focus": "Sliding Window & Two Pointers", "learn": "Recognizing and applying both patterns.", "task": "Solve 3 problems using sliding window / two pointers.", "checkpoint": false }, { "day": 36, "phase": 4, "focus": "IoC & Dependency Injection Theory", "learn": "Why DI matters; constructor vs field vs setter injection and why constructor injection wins.", "task": "Convert a manually-wired class graph in your CRUD app to use DI.", "checkpoint": false }, { "day": 37, "phase": 4, "focus": "Spring IoC Container", "learn": "ApplicationContext vs BeanFactory; bean lifecycle; scopes (singleton/prototype/request/session).", "task": "Define custom @Bean methods; observe lifecycle with @PostConstruct/@PreDestroy.", "checkpoint": false }, { "day": 38, "phase": 4, "focus": "Spring Boot Autoconfiguration", "learn": "How @SpringBootApplication resolves; starters; @ConditionalOnProperty and friends.", "task": "Write a minimal custom autoconfiguration class.", "checkpoint": false }, { "day": 39, "phase": 4, "focus": "Configuration Management", "learn": "application.yml/properties, @Profile, @ConfigurationProperties, externalized config.", "task": "Set up dev/staging/prod profiles for a project.", "checkpoint": false }, { "day": 40, "phase": 4, "focus": "Spring MVC Architecture", "learn": "DispatcherServlet, HandlerMapping, full request lifecycle.", "task": "Trace one request end-to-end with logs/breakpoints through the MVC layers.", "checkpoint": false }, { "day": 41, "phase": 4, "focus": "Building REST Controllers", "learn": "@RestController, mapping annotations, path variables, request params.", "task": "Build a full CRUD REST API for a new domain (e.g. a library system).", "checkpoint": false }, { "day": 42, "phase": 4, "focus": "Request Validation", "learn": "Bean Validation (@Valid, @NotNull, custom validators), validation groups.", "task": "Add layered validation to Day 41's API.", "checkpoint": false }, { "day": 43, "phase": 4, "focus": "Global Exception Handling", "learn": "@ControllerAdvice, @ExceptionHandler, RFC 7807 Problem Details responses.", "task": "Build a centralized, consistent error-handling layer.", "checkpoint": false }, { "day": 44, "phase": 4, "focus": "DTO Pattern & Object Mapping", "learn": "Why entities shouldn't leave the service layer; MapStruct for mapping.", "task": "Add a DTO layer with MapStruct to your API.", "checkpoint": false }, { "day": 45, "phase": 4, "focus": "Aspect-Oriented Programming", "learn": "Cross-cutting concerns, @Aspect, pointcut expressions, advice types.", "task": "Build a logging/execution-time aspect for service methods.", "checkpoint": false }, { "day": 46, "phase": 4, "focus": "Custom Validation Annotations", "learn": "Building your own Bean Validation constraints.", "task": "Write a custom annotation, e.g. @ValidPhoneNumber, with its ConstraintValidator.", "checkpoint": false }, { "day": 47, "phase": 4, "focus": "Spring Boot Actuator", "learn": "Health checks, metrics endpoints, building custom actuator endpoints.", "task": "Enable and customize Actuator on your project.", "checkpoint": false }, { "day": 48, "phase": 4, "focus": "API Versioning Strategies", "learn": "URI, header, and media-type versioning trade-offs.", "task": "Implement two versioning strategies on the same endpoint.", "checkpoint": false }, { "day": 49, "phase": 4, "focus": "File Handling", "learn": "Multipart requests, file upload/download, validation of uploaded content.", "task": "Add a validated file-upload endpoint.", "checkpoint": false }, { "day": 50, "phase": 4, "focus": "Scheduling & Async", "learn": "@Scheduled, @Async, thread-pool configuration for async tasks.", "task": "Add a scheduled job and an async mock email-sending flow.", "checkpoint": false }, { "day": 51, "phase": 4, "focus": "Internationalization", "learn": "i18n/l10n basics, MessageSource, locale resolution.", "task": "Add multi-language validation/error messages.", "checkpoint": false }, { "day": 52, "phase": 4, "focus": "Project Structure Best Practices", "learn": "Package-by-feature vs package-by-layer; where it breaks down at scale.", "task": "Restructure your project using package-by-feature.", "checkpoint": false }, { "day": 53, "phase": 4, "focus": "Logging Best Practices", "learn": "SLF4J, Logback config, structured logging, correlation IDs via MDC.", "task": "Set up structured JSON logging with a request correlation ID.", "checkpoint": false }, { "day": 54, "phase": 4, "focus": "Centralized Config Basics", "learn": "Spring Cloud Config Server concept and a local setup.", "task": "Externalize one service's config to a local config server.", "checkpoint": false }, { "day": 55, "phase": 4, "focus": "Checkpoint Build", "learn": "Consolidate everything from this phase into one cohesive service.", "task": "Build a complete Task Management REST API applying every Phase 4 topic; self-review it.", "checkpoint": true }, { "day": 56, "phase": 5, "focus": "Relational Modeling Refresher", "learn": "Normalization (1NF–3NF), ER modeling.", "task": "Design a normalized schema for an e-commerce system.", "checkpoint": false }, { "day": 57, "phase": 5, "focus": "SQL Deep Dive I", "learn": "Joins (inner/outer/cross), subqueries, CTEs.", "task": "Write 10 non-trivial queries against a sample database.", "checkpoint": false }, { "day": 58, "phase": 5, "focus": "SQL Deep Dive II", "learn": "Window functions, aggregates, GROUP BY/HAVING nuances.", "task": "Solve 5 analytics-style SQL problems using window functions.", "checkpoint": false }, { "day": 59, "phase": 5, "focus": "Indexing Deep Dive", "learn": "B-Tree indexes, composite indexes, covering indexes, when indexes hurt writes.", "task": "Use EXPLAIN ANALYZE to optimize 3 deliberately slow queries.", "checkpoint": false }, { "day": 60, "phase": 5, "focus": "Query Optimization", "learn": "Reading execution plans; spotting sequential scans and bad joins.", "task": "Profile and rewrite a query with a poor execution plan.", "checkpoint": false }, { "day": 61, "phase": 5, "focus": "Transactions & ACID", "learn": "Atomicity, consistency, isolation, durability with concrete examples.", "task": "Write code that demonstrates a transaction rollback on failure.", "checkpoint": false }, { "day": 62, "phase": 5, "focus": "Isolation Levels & Concurrency", "learn": "Dirty/non-repeatable/phantom reads; MVCC.", "task": "Reproduce a race condition at READ_COMMITTED, then fix it at SERIALIZABLE.", "checkpoint": false }, { "day": 63, "phase": 5, "focus": "JDBC Fundamentals", "learn": "Connection, PreparedStatement, ResultSet — what the ORM hides from you.", "task": "Write a query using raw JDBC, no ORM.", "checkpoint": false }, { "day": 64, "phase": 5, "focus": "Connection Pooling", "learn": "HikariCP configuration and pool-sizing math.", "task": "Tune HikariCP pool size for a simulated load scenario.", "checkpoint": false }, { "day": 65, "phase": 5, "focus": "JPA & Hibernate Fundamentals", "learn": "Entity mapping, @Id strategies, EntityManager, the Persistence Context.", "task": "Map your Day 55 project's entities with JPA.", "checkpoint": false }, { "day": 66, "phase": 5, "focus": "JPA Relationships", "learn": "@OneToMany, @ManyToOne, @ManyToMany; LAZY vs EAGER fetching.", "task": "Model entity relationships correctly, avoiding bidirectional pitfalls.", "checkpoint": false }, { "day": 67, "phase": 5, "focus": "Hibernate Internals", "learn": "First- vs second-level cache, dirty checking, flush modes.", "task": "Demonstrate dirty checking behavior with debug logging.", "checkpoint": false }, { "day": 68, "phase": 5, "focus": "The N+1 Query Problem", "learn": "Detection and fixes: JOIN FETCH, @EntityGraph, batch fetching.", "task": "Find and fix a real N+1 in your project.", "checkpoint": false }, { "day": 69, "phase": 5, "focus": "Spring Data JPA", "learn": "Repositories, derived query methods, @Query, native queries.", "task": "Replace manual JPA code with Spring Data repositories.", "checkpoint": false }, { "day": 70, "phase": 5, "focus": "JPA Specifications & Criteria API", "learn": "Building type-safe dynamic queries.", "task": "Build a dynamic multi-filter search endpoint using Specifications.", "checkpoint": false }, { "day": 71, "phase": 5, "focus": "Pagination Done Right", "learn": "Pageable/Page/Slice; offset pagination's cost at depth; keyset pagination.", "task": "Implement both offset and keyset pagination; compare their performance.", "checkpoint": false }, { "day": 72, "phase": 5, "focus": "Database Migrations", "learn": "Flyway vs Liquibase; versioned, reversible migrations.", "task": "Set up Flyway migrations for your project.", "checkpoint": false }, { "day": 73, "phase": 5, "focus": "Auditing", "learn": "@CreatedDate/@LastModifiedBy, history tracking with Envers.", "task": "Add auditing fields to your core entities.", "checkpoint": false }, { "day": 74, "phase": 5, "focus": "Optimistic vs Pessimistic Locking", "learn": "@Version-based optimistic locking; SELECT FOR UPDATE.", "task": "Simulate concurrent updates; implement optimistic locking to prevent lost updates.", "checkpoint": false }, { "day": 75, "phase": 5, "focus": "NoSQL Fundamentals", "learn": "SQL vs NoSQL trade-offs; document/key-value/column/graph store types.", "task": "Compare 3 use cases and justify a SQL vs NoSQL choice for each.", "checkpoint": false }, { "day": 76, "phase": 5, "focus": "Redis Fundamentals", "learn": "Data structures (String, Hash, List, Set, ZSet), TTL, common use cases.", "task": "Set up Redis locally; practice CRUD via redis-cli.", "checkpoint": false }, { "day": 77, "phase": 5, "focus": "MongoDB Fundamentals", "learn": "Documents/collections; schema design differences from relational modeling.", "task": "Model the same domain in MongoDB and in SQL; compare the trade-offs.", "checkpoint": false }, { "day": 78, "phase": 5, "focus": "Checkpoint Build", "learn": "Full persistence layer with caching.", "task": "Add Postgres persistence + Redis caching to your Task Management API; benchmark before/after.", "checkpoint": true }, { "day": 79, "phase": 6, "focus": "REST Design Principles", "learn": "Resource naming, correct HTTP verbs/status codes, idempotency semantics.", "task": "Audit and fix your API's REST compliance.", "checkpoint": false }, { "day": 80, "phase": 6, "focus": "HATEOAS & Richardson Maturity", "learn": "What each maturity level buys you; when HATEOAS is worth the complexity.", "task": "Add HATEOAS links to one resource.", "checkpoint": false }, { "day": 81, "phase": 6, "focus": "API Documentation", "learn": "OpenAPI/Swagger via springdoc; writing docs a stranger could use.", "task": "Fully document your API with OpenAPI annotations.", "checkpoint": false }, { "day": 82, "phase": 6, "focus": "Filtering, Sorting & Search Design", "learn": "Patterns for robust list endpoints with multiple optional filters.", "task": "Build a search endpoint supporting multiple combinable filters.", "checkpoint": false }, { "day": 83, "phase": 6, "focus": "Rate Limiting Concepts", "learn": "Token bucket, leaky bucket, fixed/sliding window algorithms.", "task": "Implement a simple in-memory rate limiter.", "checkpoint": false }, { "day": 84, "phase": 6, "focus": "Idempotency in APIs", "learn": "Idempotency keys; safe-retry design for POST requests.", "task": "Add idempotency-key support to a POST endpoint.", "checkpoint": false }, { "day": 85, "phase": 6, "focus": "Testing Strategy", "learn": "The testing pyramid; unit vs integration vs e2e; coverage philosophy.", "task": "Write a one-page testing strategy for your project.", "checkpoint": false }, { "day": 86, "phase": 6, "focus": "JUnit 5 Deep Dive", "learn": "Lifecycle annotations, parameterized tests, assertion styles.", "task": "Write unit tests for your service layer, targeting 80%+ coverage.", "checkpoint": false }, { "day": 87, "phase": 6, "focus": "Mockito Deep Dive", "learn": "Mocking, stubbing, verification, argument captors.", "task": "Mock repository/external dependencies in your service tests.", "checkpoint": false }, { "day": 88, "phase": 6, "focus": "Integration Testing", "learn": "@SpringBootTest, MockMvc, WebTestClient.", "task": "Write integration tests for your controllers.", "checkpoint": false }, { "day": 89, "phase": 6, "focus": "Testcontainers", "learn": "Running a real Postgres/Redis in tests via Docker instead of H2.", "task": "Replace in-memory test doubles with Testcontainers-backed Postgres.", "checkpoint": false }, { "day": 90, "phase": 6, "focus": "Contract Testing Basics", "learn": "Consumer-driven contracts (Spring Cloud Contract / Pact concept).", "task": "Write a simple consumer-driven contract test.", "checkpoint": false }, { "day": 91, "phase": 6, "focus": "Test-Driven Development", "learn": "Red-green-refactor in practice.", "task": "Build one new feature strictly via TDD.", "checkpoint": false }, { "day": 92, "phase": 6, "focus": "Static Analysis & Coverage", "learn": "JaCoCo, SonarLint/SonarQube, common code smells they catch.", "task": "Run static analysis on your project and fix the top issues.", "checkpoint": false }, { "day": 93, "phase": 6, "focus": "Standardized Error Contracts", "learn": "Consistent RFC 7807 error responses across an entire API surface.", "task": "Standardize every error response in your project to one contract.", "checkpoint": false }, { "day": 94, "phase": 6, "focus": "API Performance Basics", "learn": "Response compression, keep-alive, payload-size discipline.", "task": "Measure and reduce the response size/time of a heavy endpoint.", "checkpoint": false }, { "day": 95, "phase": 6, "focus": "Checkpoint", "learn": "Consolidate testing and documentation.", "task": "Bring your project to a full test suite + complete Swagger docs + clean static-analysis report.", "checkpoint": true }, { "day": 96, "phase": 7, "focus": "Security Fundamentals", "learn": "Authentication vs authorization; common attack vectors, overview.", "task": "List the current attack surface of your API.", "checkpoint": false }, { "day": 97, "phase": 7, "focus": "Spring Security Architecture", "learn": "The filter chain, SecurityContext, AuthenticationManager.", "task": "Add basic Spring Security to your project and trace a request through the filter chain.", "checkpoint": false }, { "day": 98, "phase": 7, "focus": "Password Security", "learn": "Hashing with BCrypt, salting, why you never roll your own crypto.", "task": "Implement secure registration/login with BCrypt password hashing.", "checkpoint": false }, { "day": 99, "phase": 7, "focus": "Session vs Token Auth", "learn": "Trade-offs of stateful sessions vs stateless tokens for horizontal scaling.", "task": "Document both approaches and justify one for your use case.", "checkpoint": false }, { "day": 100, "phase": 7, "focus": "JWT Deep Dive", "learn": "Header/payload/signature structure, signing algorithms, expiry, refresh tokens.", "task": "Implement JWT auth with access + refresh tokens.", "checkpoint": false }, { "day": 101, "phase": 7, "focus": "OAuth2 & OIDC Fundamentals", "learn": "Authorization code flow, client credentials flow, Auth Server vs Resource Server roles.", "task": "Diagram OAuth2 flows for a web app and a machine-to-machine scenario.", "checkpoint": false }, { "day": 102, "phase": 7, "focus": "OAuth2 Resource Server", "learn": "Validating JWTs from an external identity provider (e.g. Keycloak).", "task": "Run Keycloak locally and secure an endpoint against it.", "checkpoint": false }, { "day": 103, "phase": 7, "focus": "Method-Level Security & RBAC", "learn": "@PreAuthorize, @Secured, role- and permission-based access control.", "task": "Implement role-based access control across your endpoints.", "checkpoint": false }, { "day": 104, "phase": 7, "focus": "CORS & CSRF", "learn": "What each protects against; correct configuration; common misconfigurations.", "task": "Correctly configure CORS for a separate frontend origin.", "checkpoint": false }, { "day": 105, "phase": 7, "focus": "OWASP Top 10 Applied", "learn": "SQL injection, XSS, broken access control, SSRF — with Java-specific fixes.", "task": "Audit your project against an OWASP Top 10 checklist.", "checkpoint": false }, { "day": 106, "phase": 7, "focus": "Secrets Management", "learn": "Why secrets never belong in code; env vars; intro to Vault.", "task": "Move every hardcoded secret out of your codebase.", "checkpoint": false }, { "day": 107, "phase": 7, "focus": "API Hardening", "learn": "HTTPS enforcement, security headers, input sanitization.", "task": "Add HSTS, CSP, and X-Frame-Options headers to your app.", "checkpoint": false }, { "day": 108, "phase": 7, "focus": "Checkpoint", "learn": "Full security pass.", "task": "Run a full self-audit / pen-test-style review of your project and fix every finding.", "checkpoint": true }, { "day": 109, "phase": 8, "focus": "Caching Strategies", "learn": "Cache-aside, write-through, write-behind; TTL and eviction policies.", "task": "Write a caching-strategy doc for one read-heavy endpoint.", "checkpoint": false }, { "day": 110, "phase": 8, "focus": "Spring Cache Abstraction", "learn": "@Cacheable, @CacheEvict, @CachePut backed by Redis.", "task": "Add caching to your most-read endpoint and benchmark the improvement.", "checkpoint": false }, { "day": 111, "phase": 8, "focus": "Cache Invalidation Problems", "learn": "Stale data, thundering herd, cache stampede prevention.", "task": "Implement a stampede-prevention technique (lock or jitter) for a hot cache key.", "checkpoint": false }, { "day": 112, "phase": 8, "focus": "Distributed Caching Considerations", "learn": "Cache consistency across multiple app instances.", "task": "Document a cache-consistency strategy for a multi-instance deployment.", "checkpoint": false }, { "day": 113, "phase": 8, "focus": "Message Queues Fundamentals", "learn": "Why async messaging; pub/sub vs point-to-point; delivery guarantees overview.", "task": "Diagram one workflow in your project that would benefit from async messaging.", "checkpoint": false }, { "day": 114, "phase": 8, "focus": "RabbitMQ Fundamentals", "learn": "Exchanges, queues, bindings, routing keys.", "task": "Send and receive a message locally via Spring AMQP.", "checkpoint": false }, { "day": 115, "phase": 8, "focus": "Kafka Fundamentals I", "learn": "Topics, partitions, brokers, producers/consumers.", "task": "Set up Kafka locally and produce/consume a test message.", "checkpoint": false }, { "day": 116, "phase": 8, "focus": "Kafka Fundamentals II", "learn": "Consumer groups, offset management, delivery guarantees.", "task": "Build a Spring Kafka producer + consumer for an order-events flow.", "checkpoint": false }, { "day": 117, "phase": 8, "focus": "Event-Driven Architecture Patterns", "learn": "Event notification vs event-carried state transfer; choreography vs orchestration.", "task": "Redesign one feature of your project as event-driven.", "checkpoint": false }, { "day": 118, "phase": 8, "focus": "Outbox Pattern", "learn": "The dual-write problem; guaranteeing DB + message consistency.", "task": "Implement the transactional outbox pattern for one write path.", "checkpoint": false }, { "day": 119, "phase": 8, "focus": "Async Processing in Spring", "learn": "@Async internals, thread-pool tuning, error handling in async methods.", "task": "Convert a slow synchronous flow to async and handle its failure path.", "checkpoint": false }, { "day": 120, "phase": 8, "focus": "Reactive Programming Intro", "learn": "Reactive Streams; Mono/Flux with WebFlux; when reactive helps vs hurts.", "task": "Rewrite one endpoint with WebFlux and compare it to the blocking version.", "checkpoint": false }, { "day": 121, "phase": 8, "focus": "Backpressure & Reactive Pitfalls", "learn": "Handling producers faster than consumers in a reactive pipeline.", "task": "Summarize 3 backpressure strategies and where each applies.", "checkpoint": false }, { "day": 122, "phase": 8, "focus": "Checkpoint", "learn": "Wire messaging and caching together end to end.", "task": "Add Kafka event publishing + Redis caching to your Task Management project.", "checkpoint": true }, { "day": 123, "phase": 9, "focus": "Monolith vs Microservices", "learn": "Real trade-offs; when NOT to use microservices; monolith-first thinking.", "task": "Write a decision doc: would your project genuinely benefit from microservices?", "checkpoint": false }, { "day": 124, "phase": 9, "focus": "Service Decomposition", "learn": "By business capability, DDD bounded contexts, the strangler fig pattern.", "task": "Decompose your monolith into candidate services on paper.", "checkpoint": false }, { "day": 125, "phase": 9, "focus": "Inter-Service Communication", "learn": "Sync (REST/gRPC) vs async (events) — trade-offs per interaction type.", "task": "Choose and justify a communication style for two specific service interactions.", "checkpoint": false }, { "day": 126, "phase": 9, "focus": "gRPC Fundamentals", "learn": "Protobuf, unary vs streaming calls, trade-offs vs REST.", "task": "Build a simple gRPC service and client.", "checkpoint": false }, { "day": 127, "phase": 9, "focus": "Service Discovery", "learn": "Client-side vs server-side discovery; Eureka basics.", "task": "Set up Eureka and register two services.", "checkpoint": false }, { "day": 128, "phase": 9, "focus": "API Gateway Pattern", "learn": "Routing, and centralizing auth/rate-limiting at the edge with Spring Cloud Gateway.", "task": "Set up a gateway that routes to your services.", "checkpoint": false }, { "day": 129, "phase": 9, "focus": "Centralized Configuration", "learn": "Spring Cloud Config Server; dynamic config refresh.", "task": "Externalize configuration for multiple services through one config server.", "checkpoint": false }, { "day": 130, "phase": 9, "focus": "Resilience Patterns — Theory", "learn": "Circuit breaker states (closed/open/half-open) and why they exist.", "task": "Explain a circuit breaker's behavior using a real failure scenario from your system.", "checkpoint": false }, { "day": 131, "phase": 9, "focus": "Resilience4j Implementation", "learn": "CircuitBreaker, Retry, RateLimiter, Bulkhead annotations.", "task": "Add resilience patterns around a service-to-service call.", "checkpoint": false }, { "day": 132, "phase": 9, "focus": "Distributed Transactions", "learn": "2PC's limitations; the Saga pattern (choreography vs orchestration).", "task": "Design a Saga for a multi-service checkout flow.", "checkpoint": false }, { "day": 133, "phase": 9, "focus": "Idempotency at Scale", "learn": "Exactly-once semantics in a distributed system; idempotent event handlers.", "task": "Design idempotent event handlers for your Saga.", "checkpoint": false }, { "day": 134, "phase": 9, "focus": "Distributed Tracing", "learn": "Trace-context propagation; Micrometer Tracing; Zipkin/Jaeger.", "task": "Add distributed tracing across two services and inspect one full trace.", "checkpoint": false }, { "day": 135, "phase": 9, "focus": "CAP Theorem & Consistency Models", "learn": "Strong vs eventual consistency; PACELC.", "task": "Classify 3 real systems (bank ledger, social feed, DNS) by consistency model, with reasoning.", "checkpoint": false }, { "day": 136, "phase": 9, "focus": "Consensus Algorithms — Overview", "learn": "Why consensus matters; Raft leader election conceptually; ZooKeeper/etcd use cases.", "task": "Summarize Raft leader election in your own words, with a diagram.", "checkpoint": false }, { "day": 137, "phase": 9, "focus": "Distributed Locking", "learn": "The Redlock algorithm; when you actually need a distributed lock.", "task": "Implement a distributed lock using Redis (SETNX or Redisson).", "checkpoint": false }, { "day": 138, "phase": 9, "focus": "Data Sharding & Partitioning", "learn": "Range-based, hash-based, and directory-based sharding.", "task": "Design a sharding strategy for a large \"users\" table.", "checkpoint": false }, { "day": 139, "phase": 9, "focus": "Database Replication", "learn": "Leader-follower replication, read replicas, replication lag handling.", "task": "Document a read/write splitting strategy for your application.", "checkpoint": false }, { "day": 140, "phase": 9, "focus": "Checkpoint", "learn": "Split the monolith for real.", "task": "Split your project into 2 microservices communicating via REST + Kafka, behind a gateway with service discovery.", "checkpoint": true }, { "day": 141, "phase": 10, "focus": "Docker Fundamentals", "learn": "Images vs containers; Dockerfile basics; layer caching.", "task": "Dockerize your Spring Boot app.", "checkpoint": false }, { "day": 142, "phase": 10, "focus": "Multi-Stage Builds & Image Optimization", "learn": "Reducing image size; JRE-slim/distroless base images.", "task": "Optimize your Dockerfile with a multi-stage build.", "checkpoint": false }, { "day": 143, "phase": 10, "focus": "Docker Compose", "learn": "Orchestrating app + DB + Redis + Kafka locally as one stack.", "task": "Write a docker-compose.yml that runs your full local stack.", "checkpoint": false }, { "day": 144, "phase": 10, "focus": "Kubernetes I — Core Objects", "learn": "Pods, Deployments, ReplicaSets, Services.", "task": "Deploy your app to a local cluster (minikube or kind).", "checkpoint": false }, { "day": 145, "phase": 10, "focus": "Kubernetes II — Config & Secrets", "learn": "ConfigMaps, Secrets, environment injection.", "task": "Externalize your app's config/secrets into Kubernetes resources.", "checkpoint": false }, { "day": 146, "phase": 10, "focus": "Kubernetes III — Traffic & Scaling", "learn": "Ingress, Horizontal Pod Autoscaler, liveness/readiness probes.", "task": "Add health probes and configure autoscaling for your deployment.", "checkpoint": false }, { "day": 147, "phase": 10, "focus": "CI Fundamentals", "learn": "Pipeline stages (build/test/package); GitHub Actions basics.", "task": "Write a CI pipeline that builds and tests on every push.", "checkpoint": false }, { "day": 148, "phase": 10, "focus": "CD Fundamentals", "learn": "Deployment strategies: blue-green, canary, rolling.", "task": "Extend CI to CD: build an image and deploy it automatically.", "checkpoint": false }, { "day": 149, "phase": 10, "focus": "Monitoring Fundamentals", "learn": "The four golden signals: latency, traffic, errors, saturation.", "task": "List the golden signals you would monitor for your app, and why.", "checkpoint": false }, { "day": 150, "phase": 10, "focus": "Metrics with Prometheus & Micrometer", "learn": "Exposing and scraping custom application metrics.", "task": "Expose a custom business metric from your app and scrape it with Prometheus.", "checkpoint": false }, { "day": 151, "phase": 10, "focus": "Visualization with Grafana", "learn": "Building dashboards; basic alerting.", "task": "Build a Grafana dashboard for your app's key metrics.", "checkpoint": false }, { "day": 152, "phase": 10, "focus": "Centralized Logging", "learn": "ELK/EFK or Loki-style structured log aggregation.", "task": "Ship your app's logs to a centralized logging stack.", "checkpoint": false }, { "day": 153, "phase": 10, "focus": "Alerting & Incident Response Basics", "learn": "SLIs/SLOs/SLAs; on-call fundamentals; runbooks.", "task": "Define SLOs for your app and write one sample incident runbook.", "checkpoint": false }, { "day": 154, "phase": 10, "focus": "Infrastructure as Code Intro", "learn": "Why IaC matters; Terraform basics.", "task": "Write a minimal Terraform script that provisions one resource.", "checkpoint": false }, { "day": 155, "phase": 10, "focus": "Checkpoint", "learn": "Full observability, live.", "task": "Get metrics + logs + tracing all running together for your microservices project.", "checkpoint": true }, { "day": 156, "phase": 11, "focus": "System Design Fundamentals", "learn": "Functional vs non-functional requirements; back-of-envelope estimation.", "task": "Do a full capacity estimation (QPS, storage) for a URL shortener.", "checkpoint": false }, { "day": 157, "phase": 11, "focus": "Scalability Fundamentals", "learn": "Vertical vs horizontal scaling; why statelessness enables horizontal scale.", "task": "Find the state in your app that blocks horizontal scaling, and remove it.", "checkpoint": false }, { "day": 158, "phase": 11, "focus": "Load Balancing", "learn": "Algorithms (round robin, least connections, consistent hashing); L4 vs L7.", "task": "Explain your load-balancer choice for a stateful vs a stateless service.", "checkpoint": false }, { "day": 159, "phase": 11, "focus": "Caching at Scale & CDNs", "learn": "Edge caching; multi-layer cache hierarchies.", "task": "Design a caching layer for a globally-distributed, read-heavy API.", "checkpoint": false }, { "day": 160, "phase": 11, "focus": "Database Scaling Deep Dive", "learn": "Combining sharding, replication, and caching coherently.", "task": "Design the data layer for a system handling 1M writes/day.", "checkpoint": false }, { "day": 161, "phase": 11, "focus": "Consistent Hashing", "learn": "Theory and use in distributed caches and sharding.", "task": "Implement a simple consistent-hashing ring in code.", "checkpoint": false }, { "day": 162, "phase": 11, "focus": "System Design: URL Shortener", "learn": "Full design exercise — API, schema, scaling, edge cases.", "task": "Write a complete design doc for a URL shortener.", "checkpoint": false }, { "day": 163, "phase": 11, "focus": "System Design: Rate Limiter", "learn": "Full design exercise — distributed rate limiting.", "task": "Design a distributed rate limiter: algorithm + storage choice + justification.", "checkpoint": false }, { "day": 164, "phase": 11, "focus": "System Design: Notification System", "learn": "Full design exercise — fan-out delivery.", "task": "Design a fan-out notification system (push/email/SMS) backed by queues.", "checkpoint": false }, { "day": 165, "phase": 11, "focus": "System Design: News Feed", "learn": "Full design exercise — feed generation strategies.", "task": "Design feed generation using push, pull, and hybrid models — pick one and justify it.", "checkpoint": false }, { "day": 166, "phase": 11, "focus": "System Design: Chat/Messaging", "learn": "Full design exercise — real-time delivery.", "task": "Design a real-time messaging system: WebSockets, ordering, delivery status.", "checkpoint": false }, { "day": 167, "phase": 11, "focus": "System Design: E-Commerce Orders", "learn": "Full design exercise combining inventory, payment, and Saga.", "task": "Write a full design doc for an order system using the Saga pattern from Phase 9.", "checkpoint": false }, { "day": 168, "phase": 11, "focus": "System Design: Distributed File Storage", "learn": "Full design exercise, S3-like, high level.", "task": "Design doc covering replication, consistency, and the metadata service.", "checkpoint": false }, { "day": 169, "phase": 11, "focus": "System Design: Gateway + Auth at Scale", "learn": "Combines Phases 7–9 into one design.", "task": "Write a full design doc for a rate-limited API gateway with centralized auth.", "checkpoint": false }, { "day": 170, "phase": 11, "focus": "Mock System Design Interview", "learn": "Timeboxed practice under interview conditions.", "task": "Pick a new prompt, timebox 45 minutes, then self-critique against a rubric you define first.", "checkpoint": false }, { "day": 171, "phase": 12, "focus": "JVM Performance Tuning", "learn": "Heap sizing, GC selection by workload type, key tuning flags.", "task": "Tune JVM flags for your app under a simulated load.", "checkpoint": false }, { "day": 172, "phase": 12, "focus": "Profiling Tools", "learn": "JFR, async-profiler, VisualVM — finding real CPU/memory hotspots.", "task": "Profile your app under load and identify one concrete bottleneck.", "checkpoint": false }, { "day": 173, "phase": 12, "focus": "Load Testing", "learn": "JMeter/Gatling/k6 basics; designing realistic load tests.", "task": "Write and run a load test, capturing p50/p95/p99 latency.", "checkpoint": false }, { "day": 174, "phase": 12, "focus": "Fixing Bottlenecks", "learn": "Turning profiling + load-test data into a targeted fix.", "task": "Fix the Day 172–173 bottleneck, retest, and document the improvement.", "checkpoint": false }, { "day": 175, "phase": 12, "focus": "CQRS & Event Sourcing Concepts", "learn": "When they help; the complexity they add; when to avoid them.", "task": "Sketch a CQRS split for one feature of your project.", "checkpoint": false }, { "day": 176, "phase": 12, "focus": "API Evolution & Deprecation", "learn": "Backward compatibility strategy; deprecating an API version responsibly.", "task": "Write a deprecation plan for one API version.", "checkpoint": false }, { "day": 177, "phase": 12, "focus": "Code Review Mastery", "learn": "What elite reviewers actually check for; giving and receiving feedback well.", "task": "Do a formal self-review of your entire codebase against a checklist you write.", "checkpoint": false }, { "day": 178, "phase": 12, "focus": "Architecture Decision Records", "learn": "Documenting the \"why\" behind technical decisions, not just the \"what.\"", "task": "Write 3 ADRs for key decisions made across this roadmap.", "checkpoint": false }, { "day": 179, "phase": 13, "focus": "Capstone Kickoff", "learn": "Define scope: a multi-service system (e.g. e-commerce platform or ride-hailing backend).", "task": "Write full requirements plus an architecture diagram for the capstone.", "checkpoint": false }, { "day": 180, "phase": 13, "focus": "Data & Service Boundaries", "learn": "Finalize schema and API contracts per service.", "task": "Produce an OpenAPI contract for each planned service.", "checkpoint": false }, { "day": 181, "phase": 13, "focus": "Build: Auth/User Service", "learn": "JWT, OAuth2, RBAC — applying Phase 7 in full.", "task": "Implement and test the auth/user service.", "checkpoint": false }, { "day": 182, "phase": 13, "focus": "Build: Catalog Service", "learn": "JPA, caching, search/filter — applying Phase 5.", "task": "Implement and test the catalog/product service.", "checkpoint": false }, { "day": 183, "phase": 13, "focus": "Build: Order Service", "learn": "Saga orchestration, outbox pattern — applying Phase 9.", "task": "Implement and test the order service.", "checkpoint": false }, { "day": 184, "phase": 13, "focus": "Build: Payment Service", "learn": "Idempotency, simulated external payment API.", "task": "Implement and test the payment service.", "checkpoint": false }, { "day": 185, "phase": 13, "focus": "Build: Notification Service", "learn": "Kafka consumer, async email/SMS mock — applying Phase 8.", "task": "Implement and test the notification service.", "checkpoint": false }, { "day": 186, "phase": 13, "focus": "End-to-End Wiring", "learn": "Connect all services via Kafka events and Saga orchestration.", "task": "Get one full checkout flow working across all five services.", "checkpoint": false }, { "day": 187, "phase": 13, "focus": "Gateway & Discovery", "learn": "API Gateway, service discovery, config server — applying Phase 9.", "task": "Route all external traffic through a single gateway.", "checkpoint": false }, { "day": 188, "phase": 13, "focus": "Resilience Under Failure", "learn": "Circuit breakers, retries, bulkheads across service calls.", "task": "Kill one service mid-flow and verify the system degrades gracefully.", "checkpoint": false }, { "day": 189, "phase": 13, "focus": "Full Observability", "learn": "Metrics, logs, and tracing across every service.", "task": "Trace one request end-to-end through all five services.", "checkpoint": false }, { "day": 190, "phase": 13, "focus": "Containerize Everything", "learn": "Docker Compose for the full stack.", "task": "Get the entire system running with a single command.", "checkpoint": false }, { "day": 191, "phase": 13, "focus": "Deploy to Kubernetes", "learn": "Autoscaling, health probes, full local-cluster deployment.", "task": "Get the full capstone running on Kubernetes.", "checkpoint": false }, { "day": 192, "phase": 13, "focus": "CI/CD for All Services", "learn": "Automated build/test/deploy pipeline per service.", "task": "Wire up a working CI/CD pipeline for the whole capstone.", "checkpoint": false }, { "day": 193, "phase": 13, "focus": "Load Test the Full System", "learn": "Find and fix real bottlenecks under load.", "task": "Produce a performance report: p50/p95/p99 latency and throughput.", "checkpoint": false }, { "day": 194, "phase": 13, "focus": "Full Security Audit", "learn": "OWASP checklist, secrets, HTTPS — across every service.", "task": "Fix every finding from a full-system security audit.", "checkpoint": false }, { "day": 195, "phase": 13, "focus": "Technical Documentation", "learn": "Architecture docs, ADRs, and a real README.", "task": "Complete the full documentation package for the capstone.", "checkpoint": false }, { "day": 196, "phase": 13, "focus": "Mock System Design Interview #2", "learn": "New prompt, 45-minute timebox.", "task": "Complete the mock, then write a gap list against your rubric.", "checkpoint": false }, { "day": 197, "phase": 13, "focus": "Mock Coding/DSA Interview", "learn": "Two medium problems, 45-minute timebox.", "task": "Solve both, then review your approach against an ideal solution.", "checkpoint": false }, { "day": 198, "phase": 13, "focus": "Mock \"Deep Dive on Your Project\" Interview", "learn": "Practice explaining and defending capstone trade-offs out loud.", "task": "Record yourself answering \"walk me through your architecture.\"", "checkpoint": false }, { "day": 199, "phase": 13, "focus": "Portfolio & Resume Polish", "learn": "GitHub README quality; resume bullets that quantify impact.", "task": "Finalize your GitHub repo and write resume bullets for the capstone.", "checkpoint": false }, { "day": 200, "phase": 13, "focus": "Retrospective & Forward Plan", "learn": "What's next: OSS contribution, staying current, advanced specialization.", "task": "Write your own 90-day post-roadmap growth plan.", "checkpoint": false }] };
+      var PHASES = DATA.phases;
+      var DAYS = DATA.days;
+
+      var LS_KEY = "eliteRoadmap.v1";
+
+      var SETUP_ITEMS = [
+        "Install JDK 21 (LTS) and confirm with java -version",
+        "Install IntelliJ IDEA (Community is fine to start)",
+        "Install Docker Desktop",
+        "Install PostgreSQL locally (or via Docker) + a client such as DBeaver",
+        "Install Postman or use IntelliJ's HTTP client",
+        "Create a dedicated GitHub repo to track daily commits"
+      ];
+
+      // ---------- State ----------
+      function defaultState() {
+        return { days: {}, setup: {} };
+      }
+      function loadState() {
+        try {
+          var raw = localStorage.getItem(LS_KEY);
+          if (!raw) return defaultState();
+          var parsed = JSON.parse(raw);
+          if (!parsed.days) parsed.days = {};
+          if (!parsed.setup) parsed.setup = {};
+          return parsed;
+        } catch (e) { return defaultState(); }
+      }
+      function saveState() {
+        localStorage.setItem(LS_KEY, JSON.stringify(state));
+      }
+      var state = loadState();
+
+      // ---------- Date helpers ----------
+      function dateKey(d) {
+        var y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, "0"), day = String(d.getDate()).padStart(2, "0");
+        return y + "-" + m + "-" + day;
+      }
+      function todayKey() { return dateKey(new Date()); }
+      function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+      function keyToDate(k) { var p = k.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); }
+
+      function activityDateSet() {
+        var set = new Set();
+        Object.keys(state.days).forEach(function (day) {
+          var rec = state.days[day];
+          if (rec && rec.done && rec.completedDate) set.add(rec.completedDate);
+        });
+        return set;
+      }
+
+      function currentStreak() {
+        var set = activityDateSet();
+        if (set.size === 0) return 0;
+        var today = new Date();
+        var cursor;
+        if (set.has(dateKey(today))) { cursor = today; }
+        else if (set.has(dateKey(addDays(today, -1)))) { cursor = addDays(today, -1); }
+        else { return 0; }
+        var streak = 0;
+        while (set.has(dateKey(cursor))) {
+          streak++;
+          cursor = addDays(cursor, -1);
+        }
+        return streak;
+      }
+
+      function longestStreak() {
+        var set = activityDateSet();
+        if (set.size === 0) return 0;
+        var arr = Array.from(set).sort();
+        var best = 1, run = 1;
+        for (var i = 1; i < arr.length; i++) {
+          var prev = keyToDate(arr[i - 1]);
+          var diffDays = Math.round((keyToDate(arr[i]) - prev) / 86400000);
+          if (diffDays === 1) { run++; } else { run = 1; }
+          if (run > best) best = run;
+        }
+        return best;
+      }
+
+      function isToday(k) { return k === todayKey(); }
+
+      // ---------- Derived helpers ----------
+      function dayRec(day) {
+        if (!state.days[day]) state.days[day] = { done: false, completedDate: null, note: "" };
+        return state.days[day];
+      }
+      function completedCount() {
+        return DAYS.filter(function (d) { var r = state.days[d.day]; return r && r.done; }).length;
+      }
+      function phaseStats(phaseId) {
+        var list = DAYS.filter(function (d) { return d.phase === phaseId; });
+        var done = list.filter(function (d) { var r = state.days[d.day]; return r && r.done; }).length;
+        return { done: done, total: list.length };
+      }
+      function nextUpDay() {
+        for (var i = 0; i < DAYS.length; i++) {
+          var r = state.days[DAYS[i].day];
+          if (!r || !r.done) return DAYS[i];
+        }
+        return null;
+      }
+      function totalHoursLogged() {
+        var hrsPerDay = 475 / 200;
+        return Math.round(completedCount() * hrsPerDay);
+      }
+
+      // ---------- Toasts & confetti ----------
+      var toastStack = document.getElementById("toastStack");
+      function toast(msg, sub) {
+        var el = document.createElement("div");
+        el.className = "toast";
+        el.innerHTML = "<div>" + msg + "</div>" + (sub ? '<div class="toast-sub">' + sub + "</div>" : "");
+        toastStack.appendChild(el);
+        setTimeout(function () {
+          el.classList.add("leaving");
+          setTimeout(function () { el.remove(); }, 260);
+        }, 4200);
+      }
+
+      var confettiLayer = document.getElementById("confettiLayer");
+      var CONFETTI_COLORS = ["#E3A544", "#6DB33F", "#EFE7DA", "#D14B3D"];
+      function burstConfetti() {
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        for (var i = 0; i < 26; i++) {
+          var p = document.createElement("div");
+          p.className = "confetti-piece";
+          p.style.left = (Math.random() * 100) + "vw";
+          p.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+          p.style.animationDuration = (1.3 + Math.random() * 0.9) + "s";
+          p.style.animationDelay = (Math.random() * 0.25) + "s";
+          confettiLayer.appendChild(p);
+          (function (node) { setTimeout(function () { node.remove(); }, 2600); })(p);
+        }
+      }
+
+      var streakMilestones = [7, 14, 30, 50, 100, 150, 200];
+
+      // ---------- Render: About / setup checklist ----------
+      var setupList = document.getElementById("setupList");
+      function renderSetup() {
+        setupList.innerHTML = "";
+        SETUP_ITEMS.forEach(function (label, idx) {
+          var li = document.createElement("li");
+          var checked = !!state.setup[idx];
+          li.innerHTML = '<label class="setup-item' + (checked ? " done" : "") + '">' +
+            '<input type="checkbox" data-idx="' + idx + '" ' + (checked ? "checked" : "") + '>' +
+            "<span>" + label + "</span></label>";
+          setupList.appendChild(li);
+        });
+      }
+      setupList.addEventListener("change", function (e) {
+        var t = e.target;
+        if (t.matches('input[type="checkbox"]')) {
+          var idx = t.getAttribute("data-idx");
+          state.setup[idx] = t.checked;
+          saveState();
+          renderSetup();
+        }
+      });
+
+      document.getElementById("btnAbout").addEventListener("click", function () {
+        var panel = document.getElementById("aboutPanel");
+        panel.hidden = !panel.hidden;
+      });
+
+      // ---------- Render: stat strip ----------
+      var segbar = document.getElementById("segbar");
+      (function buildSegbar() {
+        for (var i = 0; i < 20; i++) {
+          var s = document.createElement("div");
+          s.className = "seg";
+          segbar.appendChild(s);
+        }
+      })();
+
+      function renderStats() {
+        var streak = currentStreak();
+        var best = longestStreak();
+        var done = completedCount();
+        var pct = Math.round((done / 200) * 100);
+
+        document.getElementById("streakNum").textContent = streak;
+        document.getElementById("bestStreak").textContent = best;
+        document.getElementById("progressPct").textContent = pct;
+        document.getElementById("doneCount").textContent = done;
+        document.getElementById("hoursLogged").textContent = totalHoursLogged();
+        document.getElementById("footDone").textContent = done;
+        document.getElementById("footStreak").textContent = streak;
+        document.getElementById("footBest").textContent = best;
+
+        var dot = document.getElementById("uptimeDot");
+        dot.className = "stat-dot " + (activityDateSet().has(todayKey()) ? "live" : (streak > 0 ? "idle" : ""));
+
+        var segs = segbar.children;
+        var filled = Math.round((done / 200) * 20);
+        for (var i = 0; i < segs.length; i++) {
+          segs[i].classList.toggle("on", i < filled);
+        }
+
+        var nu = nextUpDay();
+        var nextCard = document.getElementById("nextCard");
+        if (nu) {
+          nextCard.classList.remove("all-done");
+          document.getElementById("nextDayNum").textContent = "#" + String(nu.day).padStart(3, "0");
+          document.getElementById("nextFocus").textContent = nu.focus;
+          var ph = PHASES.find(function (p) { return p.id === nu.phase; });
+          document.getElementById("nextPhase").textContent = "Phase " + nu.phase + " \u00B7 " + ph.title;
+          document.getElementById("btnResume").textContent = "Resume \u2192";
+        } else {
+          nextCard.classList.add("all-done");
+          document.getElementById("nextDayNum").textContent = "\u2713";
+          document.getElementById("nextFocus").textContent = "All 200 days complete \u2014 you built the whole roadmap.";
+          document.getElementById("nextPhase").textContent = "Time for the 90-day forward plan (Day 200).";
+          document.getElementById("btnResume").textContent = "Jump to top \u2192";
+        }
+      }
+
+      document.getElementById("btnResume").addEventListener("click", function () {
+        var nu = nextUpDay();
+        if (nu) {
+          expandAndScrollTo(nu.day);
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+
+      // ---------- Render: pipeline ----------
+      var pipelineEl = document.getElementById("pipeline");
+      function renderPipeline() {
+        pipelineEl.innerHTML = "";
+        var nu = nextUpDay();
+        var currentPhase = nu ? nu.phase : 13;
+        PHASES.forEach(function (p) {
+          var st = phaseStats(p.id);
+          var status = st.done === st.total ? "complete" : (p.id === currentPhase ? "current" : (st.done > 0 ? "current" : "pending"));
+          var el = document.createElement("button");
+          el.className = "stage " + status;
+          el.type = "button";
+          el.setAttribute("data-phase", p.id);
+          el.innerHTML =
+            '<span class="stage-index">' + String(p.id).padStart(2, "0") + "</span>" +
+            '<span class="stage-name">' + p.title + "</span>" +
+            '<span class="stage-meta">' + st.done + "/" + st.total + " days</span>";
+          el.addEventListener("click", function () {
+            var target = document.getElementById("phase-" + this.getAttribute("data-phase"));
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+          pipelineEl.appendChild(el);
+        });
+      }
+
+      // ---------- Render: day list ----------
+      var dayList = document.getElementById("dayList");
+      var expandedSet = new Set();
+
+      function dayCardHTML(d) {
+        var rec = dayRec(d.day);
+        var checkpointBadge = d.checkpoint ? '<span class="cp-badge">CHECKPOINT</span>' : "";
+        var noteVal = rec.note || "";
+        return (
+          '<div class="day-card' + (rec.done ? " done" : "") + (d.checkpoint ? " checkpoint" : "") + (expandedSet.has(d.day) ? " expanded" : "") + '" data-day="' + d.day + '" data-focus="' + escAttr((d.focus + " " + d.learn + " " + d.task).toLowerCase()) + '">' +
+          '<div class="day-row">' +
+          '<button class="chk" type="button" aria-pressed="' + rec.done + '" title="Mark day ' + d.day + ' complete">' + checkIcon(rec.done) + '</button>' +
+          '<div class="day-main" role="button" tabindex="0" aria-expanded="' + expandedSet.has(d.day) + '">' +
+          '<span class="day-num">#' + String(d.day).padStart(3, "0") + '</span>' +
+          '<span class="day-focus-text">' + d.focus + '</span>' +
+          checkpointBadge +
+          '<i class="fa-solid fa-chevron-down fa-xs"></i>' +
+          '</div>' +
+          '</div>' +
+          '<div class="day-detail">' +
+          '<div class="detail-block"><span class="detail-label">What to learn</span><p class="detail-text">' + d.learn + '</p></div>' +
+          '<div class="detail-block"><span class="detail-label">Practice task</span><p class="detail-text">' + d.task + '</p></div>' +
+          '<div class="detail-block">' +
+          '<span class="detail-label">Journal &mdash; explain it back, Feynman style</span>' +
+          '<textarea class="journal-box" data-day="' + d.day + '" placeholder="3\u20135 sentences in your own words&hellip;">' + noteVal + '</textarea>' +
+          '<div class="journal-hint">Saved locally as you type.</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>'
+        );
+      }
+
+      function checkIcon(done) {
+        if (done) {
+          return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        }
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"></circle></svg>';
+      }
+
+      function escAttr(s) { return String(s).replace(/"/g, "&quot;"); }
+
+      function renderDayList() {
+        var html = "";
+        PHASES.forEach(function (p) {
+          var list = DAYS.filter(function (d) { return d.phase === p.id; });
+          var st = phaseStats(p.id);
+          html += '<section class="phase-section" id="phase-' + p.id + '">';
+          html += '<div class="phase-header">' +
+            '<div class="phase-header-left">' +
+            '<span class="phase-index">PHASE ' + p.id + '</span>' +
+            '<h3 class="phase-name">' + p.title + '</h3>' +
+            '<span class="phase-days-range">Days ' + p.range + ' &middot; ~' + p.hours + 'h</span>' +
+            (p.id >= 3 ? '<span class="phase-habit-pill">+1 DSA / day</span>' : '') +
+            '</div>' +
+            '<span class="phase-progress">' + st.done + '/' + st.total + '</span>' +
+            '</div>';
+          html += '<p class="phase-blurb">' + p.blurb + '</p>';
+          list.forEach(function (d) { html += dayCardHTML(d); });
+          html += '</section>';
+        });
+        dayList.innerHTML = html;
+      }
+
+      function expandAndScrollTo(day) {
+        expandedSet.add(day);
+        renderDayList();
+        applyFilters();
+        var card = dayList.querySelector('[data-day="' + day + '"]');
+        if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // ---------- Event delegation on day list ----------
+      dayList.addEventListener("click", function (e) {
+        var chk = e.target.closest(".chk");
+        if (chk) {
+          e.preventDefault();
+          var card = chk.closest(".day-card");
+          var day = Number(card.getAttribute("data-day"));
+          toggleDay(day);
+          return;
+        }
+        var main = e.target.closest(".day-main");
+        if (main) {
+          var card2 = main.closest(".day-card");
+          var day2 = Number(card2.getAttribute("data-day"));
+          if (expandedSet.has(day2)) expandedSet.delete(day2); else expandedSet.add(day2);
+          renderDayList();
+          applyFilters();
+        }
+      });
+      dayList.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          var main = e.target.closest(".day-main");
+          if (main) {
+            e.preventDefault();
+            main.click();
+          }
+        }
+      });
+
+      var journalTimer = null;
+      dayList.addEventListener("input", function (e) {
+        if (e.target.matches(".journal-box")) {
+          var day = e.target.getAttribute("data-day");
+          var val = e.target.value;
+          clearTimeout(journalTimer);
+          journalTimer = setTimeout(function () {
+            dayRec(day).note = val;
+            saveState();
+          }, 300);
+        }
+      });
+
+      // ---------- Toggle complete + streak/milestone logic ----------
+      function toggleDay(day) {
+        var rec = dayRec(day);
+        var wasAllDone = completedCount() === 200;
+        var meta = DAYS.find(function (d) { return d.day === Number(day); });
+
+        if (!rec.done) {
+          rec.done = true;
+          rec.completedDate = todayKey();
+          saveState();
+
+          var phBefore = phaseStats(meta.phase);
+          // phBefore already reflects the just-saved state since phaseStats reads live `state`
+          var streak = currentStreak();
+
+          if (meta.checkpoint) {
+            toast("Checkpoint cleared \u2014 Day " + day, "Phase " + meta.phase + " checkpoint shipped. Go defend it.");
+            burstConfetti();
+          } else if (phBefore.done === phBefore.total) {
+            var ph = PHASES.find(function (p) { return p.id === meta.phase; });
+            toast("Phase " + meta.phase + " complete", ph.title);
+            burstConfetti();
+          }
+
+          if (streakMilestones.indexOf(streak) !== -1) {
+            toast(streak + "-day streak", "Uptime holding. Don't break the chain.");
+            burstConfetti();
+          }
+
+          if (completedCount() === 200 && !wasAllDone) {
+            toast("All 200 days shipped", "The whole roadmap, done. Time for Day 200's forward plan.");
+            burstConfetti();
+          }
+        } else {
+          rec.done = false;
+          rec.completedDate = null;
+          saveState();
+        }
+
+        renderAll();
+      }
+
+      // ---------- Filters ----------
+      var currentFilter = "all";
+      var searchTerm = "";
+      document.querySelectorAll(".filter-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          currentFilter = btn.getAttribute("data-filter");
+          applyFilters();
+        });
+      });
+      document.getElementById("searchBox").addEventListener("input", function (e) {
+        searchTerm = e.target.value.trim().toLowerCase();
+        applyFilters();
+      });
+
+      function applyFilters() {
+        var cards = dayList.querySelectorAll(".day-card");
+        var anyVisible = false;
+        cards.forEach(function (card) {
+          var day = card.getAttribute("data-day");
+          var rec = state.days[day];
+          var done = rec && rec.done;
+          var matchesStatus = currentFilter === "all" || (currentFilter === "done" && done) || (currentFilter === "pending" && !done);
+          var matchesSearch = !searchTerm || card.getAttribute("data-focus").indexOf(searchTerm) !== -1;
+          var visible = matchesStatus && matchesSearch;
+          card.classList.toggle("hidden-by-filter", !visible);
+          if (visible) anyVisible = true;
+        });
+        document.querySelectorAll(".phase-section").forEach(function (section) {
+          var visibleCards = section.querySelectorAll(".day-card:not(.hidden-by-filter)");
+          section.style.display = visibleCards.length === 0 ? "none" : "";
+        });
+        document.getElementById("emptyState").hidden = anyVisible;
+      }
+
+      // ---------- Export / Import / Reset ----------
+      document.getElementById("btnExport").addEventListener("click", function () {
+        var blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), state: state }, null, 2)], { type: "application/json" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "roadmap-progress-" + todayKey() + ".json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        toast("Progress exported", "Saved as a downloadable JSON backup.");
+      });
+
+      document.getElementById("btnImportTrigger").addEventListener("click", function () {
+        document.getElementById("importFile").click();
+      });
+      document.getElementById("importFile").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          try {
+            var parsed = JSON.parse(ev.target.result);
+            var incoming = parsed.state || parsed;
+            if (incoming && incoming.days) {
+              state = incoming;
+              if (!state.setup) state.setup = {};
+              saveState();
+              renderAll();
+              renderSetup();
+              toast("Progress imported", "Restored from backup file.");
+            } else {
+              toast("Import failed", "That file doesn't look like a roadmap export.");
+            }
+          } catch (err) {
+            toast("Import failed", "Couldn't parse that file.");
+          }
+          e.target.value = "";
+        };
+        reader.readAsText(file);
+      });
+
+      document.getElementById("btnReset").addEventListener("click", function () {
+        if (confirm("Reset all progress? This clears every completed day, journal entry, and your streak. Export a backup first if you want to keep it.")) {
+          state = defaultState();
+          saveState();
+          renderAll();
+          renderSetup();
+          toast("Progress reset", "Back to Day 1.");
+        }
+      });
+
+      // ---------- Render orchestration ----------
+      function renderAll() {
+        renderStats();
+        renderPipeline();
+        renderDayList();
+        applyFilters();
+      }
+
+      renderSetup();
+      renderAll();
+
+    })();
+
+  </script>
+</body>
+
+</html>
