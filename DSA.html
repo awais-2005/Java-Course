@@ -716,10 +716,15 @@
       animation: stampIn .32s cubic-bezier(.34, 1.56, .64, 1) forwards;
     }
 
-    .btn {
-      padding: calc(5*1.613px) calc(10*1.613px);
-      margin-right: 5px;
+    .btn-wrapper {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
       margin-top: 10px;
+    }
+
+    .btn {
+      padding: calc(4*1.613px) calc(8*1.613px);
       font-family: var(--font-display);
       font-size: 14px;
       font-weight: 900;
@@ -1020,6 +1025,8 @@
           <div class="brand-sub">
             Curated for Java / Spring Boot backend interviews at payments &amp; banking companies.
             Sorted Easy → Hard. Company tags are pulled from verified interview-report data only.
+          </div>
+          <div class="btn-wrapper">
             <button class="btn" id="aboutbtn" type="button">Readme</button>
             <a class="btn" id="topicbtn" type="button" href="./dsa_topics.html">Explore Topics<a />
               <a class="btn" id="striver" type="button"
