@@ -1,0 +1,735 @@
+{
+  "phase": 1,
+  "title": "Programming and Java From Scratch",
+  "total_days": 45,
+  "daily_time_hours": 2,
+  "goal": "Go from zero to confident core Java: syntax, OOP, collections, generics, exceptions, lambdas, streams, I/O, testing, and a capstone banking project.",
+  "days": [
+    {
+      "day": 1,
+      "title": "How Java Works and Setting Up Your Environment",
+      "topics": [
+        "What a programming language is; compiler vs interpreter",
+        "JDK vs JRE vs JVM",
+        "Bytecode and platform independence",
+        "Installing JDK 21 (LTS) and IntelliJ IDEA",
+        "Structure of a Java program: class and main method",
+        "Compiling and running from the command line (javac, java)"
+      ],
+      "task": {
+        "title": "Hello World Three Ways",
+        "description": "Write Hello World and compile it in the terminal with javac, then run it with java. Recreate it as an IntelliJ project. Extend it to print your name, roll number and program on separate lines using both System.out.println and System.out.print. Then deliberately introduce 3 errors (missing semicolon, wrong class name, misspelled keyword) and write down each compiler error message and what it means."
+      }
+    },
+    {
+      "day": 2,
+      "title": "Variables and Data Types",
+      "topics": [
+        "Primitive types: byte, short, int, long, float, double, char, boolean and their ranges",
+        "Declaring vs initializing variables",
+        "Naming rules and conventions (camelCase)",
+        "Primitive vs reference types (intro)",
+        "Type casting: widening and narrowing",
+        "Integer overflow",
+        "Constants with final; the var keyword"
+      ],
+      "task": {
+        "title": "Data Type Explorer",
+        "description": "Write a program that declares one variable of every primitive type and prints each value. Print the minimum and maximum of each numeric type using wrapper constants such as Integer.MAX_VALUE. Demonstrate overflow by adding 1 to Integer.MAX_VALUE, show precision loss when casting double to int, and convert a char to its int code and back. Add a comment above every output line explaining why it prints what it prints."
+      }
+    },
+    {
+      "day": 3,
+      "title": "Operators, Expressions and User Input",
+      "topics": [
+        "Arithmetic, relational and logical operators",
+        "Assignment and compound assignment operators",
+        "Pre vs post increment/decrement",
+        "Operator precedence and associativity",
+        "Integer division and modulo",
+        "Bitwise operators (overview)",
+        "Reading input with Scanner",
+        "Math class basics"
+      ],
+      "task": {
+        "title": "Smart Calculator v1",
+        "description": "Ask the user for two numbers using Scanner and print sum, difference, product, quotient and remainder. Then compute the average of three numbers, the area and circumference of a circle (Math.PI), and simple interest from principal, rate and time. Finally, observe what happens when you divide an int by zero versus a double by zero, and write 2 sentences explaining the difference."
+      }
+    },
+    {
+      "day": 4,
+      "title": "Decision Making: if, switch and Ternary",
+      "topics": [
+        "if, if-else, else-if ladder",
+        "Nested conditions",
+        "switch statement (classic) and switch with arrow syntax",
+        "Ternary operator",
+        "Boolean logic with &&, ||, ! and short-circuit evaluation",
+        "Common pitfalls: = vs ==, missing break in switch"
+      ],
+      "task": {
+        "title": "Grade and Eligibility Checker",
+        "description": "Build four small programs in one project. (1) Read marks 0-100, validate the range, and print a grade letter using an if-else ladder. (2) Read a number 1-7 and print the day name using a switch with arrow syntax. (3) Check whether a year is a leap year. (4) Read three side lengths, validate they form a triangle, and print whether it is equilateral, isosceles or scalene."
+      }
+    },
+    {
+      "day": 5,
+      "title": "Loops and Problem Solving",
+      "topics": [
+        "for, while and do-while loops",
+        "break, continue and labeled break",
+        "Nested loops",
+        "Infinite loops and how to avoid them",
+        "Dry-running a loop on paper (tracing)",
+        "Choosing the right loop"
+      ],
+      "task": {
+        "title": "Pattern and Number Practice",
+        "description": "Write programs to: print the multiplication table of n; find the sum of digits of a number; reverse a number; check if a number is a palindrome; check if a number is prime; print the first n Fibonacci numbers. Then print three patterns: a right-angled star triangle, a centered pyramid, and a number diamond. Dry-run at least one program on paper before coding it."
+      }
+    },
+    {
+      "day": 6,
+      "title": "Methods",
+      "topics": [
+        "Declaring and calling methods",
+        "Parameters and return types; void",
+        "Method overloading",
+        "Pass-by-value for primitives",
+        "Variable scope and lifetime",
+        "Varargs",
+        "Single-responsibility methods; intro to Javadoc comments"
+      ],
+      "task": {
+        "title": "Refactor Into Methods",
+        "description": "Take your Day 3-5 programs and refactor them into reusable methods: isPrime, reverseNumber, isPalindrome, gcd, factorial, power. Create three overloaded area methods (circle, rectangle, triangle). Write a sum(int... nums) varargs method. Finally write a menu-driven main that lets the user pick which method to run, using a loop until they choose Exit."
+      }
+    },
+    {
+      "day": 7,
+      "title": "Recursion",
+      "topics": [
+        "Base case and recursive case",
+        "The call stack and StackOverflowError",
+        "Recursion vs iteration",
+        "Classic problems: factorial, Fibonacci, power, digit sum, gcd",
+        "Tracing recursion trees",
+        "Tail recursion (concept)"
+      ],
+      "task": {
+        "title": "Recursion Workbook",
+        "description": "Implement recursively: factorial, Fibonacci, sum of digits, power(x, n), reverse a string, palindrome check, and binary representation of n. Draw the call tree of fib(5) on paper and count total calls. Deliberately trigger a StackOverflowError and note the depth reached. Compare recursive vs iterative fib(40) timing using System.nanoTime() and write what you learn."
+      }
+    },
+    {
+      "day": 8,
+      "title": "Arrays",
+      "topics": [
+        "Declaring and creating arrays; default values",
+        "Indexing, length, ArrayIndexOutOfBoundsException",
+        "Traversal with for and for-each",
+        "Arrays are reference types (passing to methods)",
+        "Arrays class: toString, sort, fill, copyOf, equals, binarySearch",
+        "Copying arrays"
+      ],
+      "task": {
+        "title": "Array Utilities Library",
+        "description": "Create a class ArrayUtils with static methods: findMax, findMin, sum, average, reverseInPlace, linearSearch, countOccurrences, removeDuplicatesFromSorted, secondLargest, and rotate(arr, k). Test every method in main with at least 3 inputs each, including an empty array and a single-element array, and print expected vs actual results."
+      }
+    },
+    {
+      "day": 9,
+      "title": "2D Arrays, Sorting and Searching",
+      "topics": [
+        "2D and jagged arrays",
+        "Row/column traversal",
+        "Matrix operations",
+        "Bubble, selection and insertion sort",
+        "Binary search",
+        "Big-O intuition (O(1), O(n), O(n^2), O(log n))"
+      ],
+      "task": {
+        "title": "Matrix and Sorting Toolkit",
+        "description": "Implement matrix addition, multiplication and transpose, and print a matrix in spiral order. Implement bubble, selection and insertion sort and binary search from scratch. Count comparisons for each sort on 1000 random numbers and present results in a small table. Write 3 sentences explaining why binary search requires sorted input and why it is O(log n)."
+      }
+    },
+    {
+      "day": 10,
+      "title": "Strings",
+      "topics": [
+        "String as an object; immutability",
+        "String pool; == vs equals",
+        "Common methods: length, charAt, substring, indexOf, replace, split, trim, contains, compareTo",
+        "Character arrays",
+        "Converting between String and numbers"
+      ],
+      "task": {
+        "title": "String Problem Set",
+        "description": "Solve: count vowels and consonants; reverse the words in a sentence; check if two strings are anagrams; check palindrome ignoring case and spaces; character frequency using int[26]; compress 'aaabbc' to 'a3b2c1'. Also demonstrate == vs equals using string literals and new String(), and write a short explanation of the string pool."
+      }
+    },
+    {
+      "day": 11,
+      "title": "StringBuilder, Formatting and Regex",
+      "topics": [
+        "String vs StringBuilder vs StringBuffer",
+        "append, insert, delete, reverse",
+        "String.format and printf",
+        "Text blocks and String.join",
+        "Regex basics: Pattern, Matcher, matches, replaceAll"
+      ],
+      "task": {
+        "title": "Text Utility Tool",
+        "description": "Build a small tool that: prints a receipt with aligned columns using printf; validates an email address and a phone number using regex; masks a card number except the last 4 digits; and benchmarks concatenating 100,000 strings using + versus StringBuilder, printing the times. Explain the result in a comment."
+      }
+    },
+    {
+      "day": 12,
+      "title": "Checkpoint Project: Console Utility Suite",
+      "topics": [
+        "Planning a program before coding",
+        "Menu-driven design",
+        "Input validation loops (hasNextInt)",
+        "Organizing code into methods",
+        "Manual test cases",
+        "Writing a simple README"
+      ],
+      "task": {
+        "title": "Console Utility Suite",
+        "description": "Build a menu-driven application with: a calculator, number tools (prime, palindrome, factorial), string tools, and array tools (sort, search, statistics). Validate all input so non-numeric input never crashes the program. Use methods only, with no copy-pasted logic. Write a README with how to run it and 5 test cases. At the end, list 3 things that were hard and revise those topics."
+      }
+    },
+    {
+      "day": 13,
+      "title": "Classes and Objects",
+      "topics": [
+        "Why OOP exists",
+        "Class vs object",
+        "Fields and methods",
+        "Constructors: default, parameterized, overloaded",
+        "this keyword and constructor chaining",
+        "Objects in memory: stack reference, heap object",
+        "null and NullPointerException"
+      ],
+      "task": {
+        "title": "Model Real Things",
+        "description": "Create classes Student(name, rollNo, cgpa), BankAccount(accountNo, holder, balance) and Book(title, author, price). Give each at least two constructors using this(...) chaining, a display method, and one behavior method (for example deposit). In main, create several objects, show that two references can point to the same object, and deliberately cause then fix a NullPointerException."
+      }
+    },
+    {
+      "day": 14,
+      "title": "Encapsulation, Access Modifiers and Packages",
+      "topics": [
+        "private, default, protected, public",
+        "Getters and setters with validation",
+        "Purpose of encapsulation",
+        "Packages and imports",
+        "Project folder structure and naming"
+      ],
+      "task": {
+        "title": "Secure the Bank Account",
+        "description": "Rewrite BankAccount with private fields, validated setters (no negative balance, holder name not empty), and deposit/withdraw methods enforcing rules. Provide no setter for accountNo. Organize code into packages com.example.bank.model and com.example.bank.app. Demonstrate the compile error you get when accessing a private field from another class, and explain why that protection is useful."
+      }
+    },
+    {
+      "day": 15,
+      "title": "static, final and Initialization Order",
+      "topics": [
+        "static variables, methods and blocks",
+        "Instance vs class members",
+        "final variables, methods and classes",
+        "static final constants",
+        "Instance initializer blocks and initialization order",
+        "Utility classes with private constructors"
+      ],
+      "task": {
+        "title": "ID Generator and Constants",
+        "description": "Add an auto-incrementing static ID generator to Student and BankAccount. Create a Config class holding constants such as MIN_BALANCE and INTEREST_RATE using static final. Write a utility class with a private constructor and static helpers. Build a demo class that prints the order of execution of a static block, an instance block and a constructor, then write the rule in a comment."
+      }
+    },
+    {
+      "day": 16,
+      "title": "Inheritance",
+      "topics": [
+        "extends and the is-a relationship",
+        "super keyword",
+        "Constructor call order in inheritance",
+        "Method overriding and @Override",
+        "protected access",
+        "Types of inheritance in Java",
+        "When not to use inheritance"
+      ],
+      "task": {
+        "title": "Account Hierarchy",
+        "description": "Create a base class Account with SavingsAccount (adds interest) and CurrentAccount (overdraft limit), each overriding withdraw with its own rules. Add print statements in constructors to show the call order. Build a second hierarchy Employee with Manager and Developer, overriding calculateSalary. In comments, explain the difference between overriding and overloading with examples from your code."
+      }
+    },
+    {
+      "day": 17,
+      "title": "Polymorphism",
+      "topics": [
+        "Compile-time vs runtime polymorphism",
+        "Upcasting and downcasting",
+        "Dynamic method dispatch",
+        "instanceof and pattern matching for instanceof",
+        "ClassCastException",
+        "Field hiding vs method overriding"
+      ],
+      "task": {
+        "title": "Polymorphic Payroll",
+        "description": "Create an array of Employee references holding different subclasses and loop through calling calculateSalary(). Use instanceof pattern matching to apply a special bonus to Managers. Trigger a ClassCastException and fix it. Finally, write 5 'what does this print?' snippets involving overriding and field hiding, predict the output on paper, then run them and review wrong predictions."
+      }
+    },
+    {
+      "day": 18,
+      "title": "Abstraction: Abstract Classes and Interfaces",
+      "topics": [
+        "Abstract classes and abstract methods",
+        "Interfaces",
+        "default, static and private interface methods",
+        "Abstract class vs interface",
+        "Implementing multiple interfaces; diamond conflict",
+        "Programming to an interface"
+      ],
+      "task": {
+        "title": "Payment Interfaces and Shapes",
+        "description": "Define an interface PaymentMethod with pay(amount) and implement CreditCard, BankTransfer and Wallet. Add a default method (for example a receipt printer) and resolve a diamond conflict between two interfaces. Also create an abstract class Shape with area() and perimeter() and implement Circle, Rectangle and Triangle. Write a comparison of abstract class vs interface in comments."
+      }
+    },
+    {
+      "day": 19,
+      "title": "The Object Class and Wrapper Classes",
+      "topics": [
+        "Methods of Object: toString, equals, hashCode",
+        "The equals/hashCode contract",
+        "Wrapper classes",
+        "Autoboxing and unboxing",
+        "Integer cache and == pitfalls",
+        "Parsing: Integer.parseInt, valueOf"
+      ],
+      "task": {
+        "title": "Make Objects Behave",
+        "description": "Implement toString, equals and hashCode for Student and BankAccount using Objects.equals and Objects.hash. Demonstrate the Integer cache trap (compare two Integers of 127 and of 128 using ==). Show what breaks when you override equals without hashCode by putting duplicates into a HashSet. Write a short explanation of the equals/hashCode contract in your own words."
+      }
+    },
+    {
+      "day": 20,
+      "title": "Nested Classes and Enums",
+      "topics": [
+        "Static nested, inner, local and anonymous classes",
+        "Enums with fields, constructors and methods",
+        "Enums in switch",
+        "values(), valueOf(), ordinal()",
+        "Enums implementing interfaces"
+      ],
+      "task": {
+        "title": "Enums for Domain Modeling",
+        "description": "Create enums TransactionType (DEPOSIT, WITHDRAW, TRANSFER), AccountStatus, and Currency (with symbol and exchangeRate fields), and use them in switch expressions. Create an inner class Transaction inside a Bank class. Write an anonymous class implementing a small interface. Summarize in comments when you would choose each kind of nested class."
+      }
+    },
+    {
+      "day": 21,
+      "title": "Project: Library Management System v1 (OOP)",
+      "topics": [
+        "Turning requirements into classes",
+        "Association, aggregation and composition",
+        "UML class diagram basics",
+        "Applying encapsulation, inheritance and interfaces together",
+        "Separating console UI from logic",
+        "Using arrays for storage (collections come later)"
+      ],
+      "task": {
+        "title": "Library Management System v1",
+        "description": "First draw a class diagram (on paper or draw.io). Then implement Book, Member, Person, Librarian (extends Person), Loan and Library classes. Features: add/remove books, register members, issue and return books with due-date and fine rules, and search by title or author. Use arrays for storage and a menu-driven console UI. You will upgrade this project to collections in Day 29."
+      }
+    },
+    {
+      "day": 22,
+      "title": "Exception Handling I",
+      "topics": [
+        "Error vs Exception",
+        "Throwable hierarchy: Error, Exception, RuntimeException",
+        "Checked vs unchecked exceptions",
+        "try, catch, finally; multi-catch",
+        "throw vs throws",
+        "Reading a stack trace",
+        "Common exceptions and their causes"
+      ],
+      "task": {
+        "title": "Break It on Purpose",
+        "description": "Write a program that triggers 8 common exceptions (NullPointerException, ArrayIndexOutOfBounds, ArithmeticException, NumberFormatException, ClassCastException, InputMismatchException, NegativeArraySizeException, StackOverflowError) and handle each with a specific catch. Prove that finally runs even when try has a return. Write a method that throws a checked exception and handle it in its caller. Paste one real stack trace and annotate each line."
+      }
+    },
+    {
+      "day": 23,
+      "title": "Exception Handling II and Debugging",
+      "topics": [
+        "Custom checked and unchecked exceptions",
+        "Exception chaining (cause)",
+        "try-with-resources and AutoCloseable",
+        "Best practices: never swallow exceptions, catch specific types, fail fast",
+        "IntelliJ debugger: breakpoints, step into/over, watches"
+      ],
+      "task": {
+        "title": "Harden the Bank",
+        "description": "Add InsufficientFundsException, AccountNotFoundException and InvalidAmountException to your bank project. Make withdraw and transfer throw them, and handle them in the UI layer with friendly messages. Create a resource class implementing AutoCloseable and use it in try-with-resources. Use the debugger to step through a transfer and record variable values at 3 breakpoints."
+      }
+    },
+    {
+      "day": 24,
+      "title": "Generics",
+      "topics": [
+        "Why generics exist",
+        "Generic classes, interfaces and methods",
+        "Bounded type parameters",
+        "Wildcards: ?, ? extends, ? super",
+        "Type erasure",
+        "Raw types and why to avoid them"
+      ],
+      "task": {
+        "title": "Build Your Own Generic Containers",
+        "description": "Implement Box<T>, Pair<K, V>, and a generic Stack<T> backed by an array that grows when full. Write a generic method <T extends Comparable<T>> T max(T a, T b) and a method printAll(List<? extends Number>). Show a raw-type ClassCastException at runtime, then show how generics turn it into a compile-time error."
+      }
+    },
+    {
+      "day": 25,
+      "title": "Collections Framework and Lists",
+      "topics": [
+        "Collections hierarchy; Collection vs Collections",
+        "ArrayList internals: dynamic array and growth",
+        "LinkedList: doubly linked list",
+        "Iterator and ListIterator",
+        "ConcurrentModificationException",
+        "Immutable lists with List.of",
+        "Time complexity of list operations"
+      ],
+      "task": {
+        "title": "List Lab",
+        "description": "Benchmark add, get, remove-first and insert-in-middle for ArrayList vs LinkedList with 100,000 elements and record the results in a table. Trigger ConcurrentModificationException by removing inside a for-each, then fix it with Iterator.remove and with removeIf. Implement your own MyArrayList<T> with add, get, remove, size and automatic growth."
+      }
+    },
+    {
+      "day": 26,
+      "title": "Sets and How Hashing Works",
+      "topics": [
+        "Set interface",
+        "HashSet, LinkedHashSet, TreeSet",
+        "hashCode, buckets and collisions",
+        "Role of equals and hashCode in sets",
+        "NavigableSet operations",
+        "Set operations: union, intersection, difference"
+      ],
+      "task": {
+        "title": "Set Problems",
+        "description": "Solve: remove duplicates from a list while preserving order; find common elements of two lists; find the first non-repeating character; implement union, intersection and difference. Store Student objects in a HashSet with and without equals/hashCode and compare. Sort students by CGPA in a TreeSet with a Comparator. Draw a bucket diagram of 5 entries including one collision."
+      }
+    },
+    {
+      "day": 27,
+      "title": "Maps",
+      "topics": [
+        "Map interface",
+        "HashMap, LinkedHashMap, TreeMap",
+        "HashMap internals: buckets, load factor, resizing, treeification",
+        "put, get, getOrDefault, putIfAbsent, merge, compute",
+        "Iterating with entrySet",
+        "ConcurrentHashMap (preview)"
+      ],
+      "task": {
+        "title": "Map Challenges",
+        "description": "Build a word-frequency counter for a paragraph and print words sorted by count. Group students by department. Solve two-sum using a HashMap. Implement an LRU cache using LinkedHashMap with access order and removeEldestEntry. Write a short explanation of what happens inside HashMap when it resizes."
+      }
+    },
+    {
+      "day": 28,
+      "title": "Queues, Deques, Sorting and Utility Classes",
+      "topics": [
+        "Queue, Deque, ArrayDeque",
+        "PriorityQueue (heap)",
+        "Stack vs Deque as a stack",
+        "Comparable vs Comparator",
+        "Collections utility methods",
+        "Arrays.asList pitfalls"
+      ],
+      "task": {
+        "title": "Task Scheduler and Sorting",
+        "description": "Simulate a task scheduler using PriorityQueue (priority, then deadline). Implement a balanced-parentheses checker with Deque. Sort employees by department ascending, salary descending, then name using Comparator.comparing().thenComparing(). Implement a queue using two stacks. List 5 pitfalls you encountered."
+      }
+    },
+    {
+      "day": 29,
+      "title": "Project: Library Management v2 with Collections",
+      "topics": [
+        "Choosing the right collection",
+        "Refactoring arrays to collections",
+        "Layered structure: model, service, ui packages",
+        "Searching, sorting and filtering",
+        "Validation"
+      ],
+      "task": {
+        "title": "Library Management System v2",
+        "description": "Upgrade the Day 21 project: use Map<String, Book> for the catalog, List<Loan> for loans and Set for members. Add sorting and multi-field search, and an overdue report. Reorganize into model, service and ui packages with no business logic in the UI. Write a table justifying each collection choice."
+      }
+    },
+    {
+      "day": 30,
+      "title": "Lambda Expressions",
+      "topics": [
+        "Functional programming idea",
+        "Functional interfaces and @FunctionalInterface",
+        "Lambda syntax",
+        "Lambda vs anonymous class",
+        "Effectively final variables and closures",
+        "Lambdas with Comparator and Runnable"
+      ],
+      "task": {
+        "title": "Lambda Workout",
+        "description": "Rewrite 5 earlier anonymous classes or Comparators as lambdas. Create a custom functional interface Validator<T> and write 5 lambda validators (email, positive amount, and so on). Build a Map<String, BinaryOperator<Double>> of calculator operations. Write an example that fails to compile because it modifies a captured variable and explain why."
+      }
+    },
+    {
+      "day": 31,
+      "title": "Built-in Functional Interfaces and Method References",
+      "topics": [
+        "Predicate, Function, Consumer, Supplier",
+        "BiFunction, UnaryOperator, BinaryOperator",
+        "Composition: and, or, negate, andThen, compose",
+        "Four kinds of method references",
+        "forEach, removeIf, replaceAll, computeIfAbsent"
+      ],
+      "task": {
+        "title": "Functional Toolbox",
+        "description": "Build a validation pipeline by composing Predicates with and/or/negate. Build a Function chain that trims, uppercases and masks a string. Show all four method-reference kinds with an example each. Process a list of transactions using forEach, removeIf and replaceAll."
+      }
+    },
+    {
+      "day": 32,
+      "title": "Streams I",
+      "topics": [
+        "What a stream is; source, intermediate and terminal operations",
+        "Creating streams",
+        "filter, map, sorted, distinct, limit, skip, peek",
+        "forEach, collect, count, anyMatch, allMatch, noneMatch, findFirst, min, max",
+        "Lazy evaluation",
+        "Streams vs loops"
+      ],
+      "task": {
+        "title": "Stream Drills I",
+        "description": "Using a list of Employee objects, solve 15 problems using only streams, for example: names of employees earning above 50,000 sorted alphabetically, count by department, highest paid employee, and whether anyone is under 21. For 5 of them also write the loop version and compare readability. Use peek to demonstrate lazy evaluation."
+      }
+    },
+    {
+      "day": 33,
+      "title": "Streams II: Collectors and Advanced Operations",
+      "topics": [
+        "Collectors: toList, toSet, toMap, joining",
+        "groupingBy, partitioningBy, counting, summingInt, averagingDouble, mapping",
+        "flatMap",
+        "reduce",
+        "IntStream, range, summaryStatistics",
+        "Parallel streams and their cautions",
+        "Stream reuse error"
+      ],
+      "task": {
+        "title": "Stream Drills II",
+        "description": "Using a Transaction dataset: compute total per account (groupingBy plus summing), find the top 3 customers, partition high and low value transactions, flatMap words out of a list of sentences, and compute factorial with IntStream.rangeClosed and reduce. Build a monthly report with summaryStatistics. Compare sequential vs parallel sum over 10 million numbers and explain the result."
+      }
+    },
+    {
+      "day": 34,
+      "title": "Optional and Modern Java Features",
+      "topics": [
+        "Optional: of, empty, ofNullable, map, flatMap, orElse, orElseGet, orElseThrow, ifPresent",
+        "Optional anti-patterns",
+        "Records",
+        "var",
+        "Switch expressions and pattern matching for switch",
+        "Sealed classes and interfaces",
+        "Text blocks"
+      ],
+      "task": {
+        "title": "Modernize the Codebase",
+        "description": "Refactor service methods that return null into Optional-returning methods. Convert data-carrier classes into records. Rewrite old switch statements as switch expressions. Model a payment result as a sealed interface with Success and Failure records and process it with a pattern-matching switch. Keep a before/after comparison file."
+      }
+    },
+    {
+      "day": 35,
+      "title": "Date and Time API",
+      "topics": [
+        "Why Date and Calendar are problematic",
+        "LocalDate, LocalTime, LocalDateTime",
+        "ZonedDateTime and Instant",
+        "Duration vs Period; ChronoUnit",
+        "DateTimeFormatter and parsing",
+        "Time zones; storing time in UTC"
+      ],
+      "task": {
+        "title": "Time Toolkit",
+        "description": "Build utilities to: compute age from date of birth; count business days between two dates (skipping weekends); calculate loan due dates and late fines; convert a meeting time across 3 time zones; format and parse dates in 3 formats. Add timestamps to Transactions in the bank project and print a statement for the last 30 days."
+      }
+    },
+    {
+      "day": 36,
+      "title": "File I/O",
+      "topics": [
+        "File vs Path",
+        "Files class: readAllLines, write, walk, copy, delete",
+        "BufferedReader, BufferedWriter, PrintWriter",
+        "Character encoding (UTF-8)",
+        "CSV handling basics",
+        "IOException and try-with-resources"
+      ],
+      "task": {
+        "title": "File Persistence",
+        "description": "Save and load Library books and members to CSV files. Build a log analyzer that reads a text file and counts lines per level (INFO, WARN, ERROR). Write a directory walker that lists files sorted by size. Handle missing files and malformed rows gracefully with clear error messages."
+      }
+    },
+    {
+      "day": 37,
+      "title": "I/O Streams and Serialization",
+      "topics": [
+        "Byte streams vs character streams",
+        "InputStream/OutputStream and Reader/Writer",
+        "Buffering and the decorator pattern in I/O",
+        "DataInputStream and DataOutputStream",
+        "Serializable, transient, serialVersionUID",
+        "Problems with Java serialization",
+        "Files.lines for streaming large files"
+      ],
+      "task": {
+        "title": "Binary and Object Persistence",
+        "description": "Copy an image file with byte streams, with and without buffering, and compare timings. Serialize a list of BankAccount objects and read them back. Mark a password field transient and verify it is not saved. Change the class after serializing and observe the InvalidClassException. Write 5 lines on why Java serialization is generally discouraged."
+      }
+    },
+    {
+      "day": 38,
+      "title": "Java Memory Basics",
+      "topics": [
+        "Stack, heap and metaspace",
+        "References and object lifecycle",
+        "Pass-by-value with references",
+        "Shallow vs deep copy",
+        "Garbage collection basics: reachability and generations",
+        "Memory leaks in Java",
+        "OutOfMemoryError"
+      ],
+      "task": {
+        "title": "Memory Detective",
+        "description": "Draw a stack and heap diagram for a given code snippet. Implement deep copy of a class containing a List field using a copy constructor. Cause an OutOfMemoryError by filling a static list and record the message. Run a program that allocates objects while watching the heap in VisualVM or jconsole. Write short notes on how the GC decides an object is garbage."
+      }
+    },
+    {
+      "day": 39,
+      "title": "Design Choices: Composition, Immutability and Money",
+      "topics": [
+        "Composition over inheritance",
+        "Writing immutable classes",
+        "Defensive copying",
+        "Consistency of equals, hashCode and compareTo",
+        "Avoiding null",
+        "BigDecimal and why double is wrong for money"
+      ],
+      "task": {
+        "title": "Redesign Review",
+        "description": "Review your Library and Bank code and identify 5 places where inheritance is misused; replace one with composition. Create an immutable Money class (BigDecimal amount plus Currency) with add and subtract. Demonstrate with 0.1 + 0.2 in double why floating point is dangerous for finance, and migrate the bank project to use Money."
+      }
+    },
+    {
+      "day": 40,
+      "title": "Unit Testing with JUnit 5",
+      "topics": [
+        "Why testing matters",
+        "@Test, assertions, @BeforeEach",
+        "assertThrows",
+        "Parameterized tests",
+        "Arrange-Act-Assert",
+        "Edge cases and test naming",
+        "Test-driven development basics"
+      ],
+      "task": {
+        "title": "Test the Core",
+        "description": "Add JUnit 5 through IntelliJ and write at least 25 tests across ArrayUtils, MyArrayList, Money and BankAccount (deposit, withdraw, exceptions), including edge cases. Use TDD for one feature: write the failing test for a transfer method first, then implement it. Note every bug your tests uncovered."
+      }
+    },
+    {
+      "day": 41,
+      "title": "Reflection, Annotations and Utility APIs",
+      "topics": [
+        "Reflection basics: Class, fields, methods",
+        "Built-in and custom annotations",
+        "BigInteger and BigDecimal",
+        "Random vs SecureRandom",
+        "Command-line args, system properties, environment variables",
+        "Bit manipulation basics"
+      ],
+      "task": {
+        "title": "Java Utility Grab Bag",
+        "description": "Write a program that lists the fields and methods of any class using reflection. Define a custom annotation @Audit and detect it by reflection. Use BigInteger to compute 100 factorial. Generate a secure random password with SecureRandom. Build a mini CLI that parses command-line arguments. Implement bit tricks: power-of-two check, count set bits, swap without a temp variable."
+      }
+    },
+    {
+      "day": 42,
+      "title": "Clean Code, Refactoring and Logging",
+      "topics": [
+        "Naming and small methods",
+        "Comments vs self-documenting code",
+        "Code smells and refactoring",
+        "Javadoc",
+        "java.util.logging and log levels",
+        "Why not System.out for logs",
+        "Code review checklist"
+      ],
+      "task": {
+        "title": "Code Review Day",
+        "description": "Review your Library project against a checklist and list 15 issues. Fix the top 10. Add Javadoc to all public classes and methods. Replace debug System.out calls with java.util.logging at the right levels and configure output to a log file."
+      }
+    },
+    {
+      "day": 43,
+      "title": "Capstone Day 1: Requirements and Design",
+      "topics": [
+        "Gathering requirements and user stories",
+        "Identifying entities and relationships",
+        "Class diagram and package structure",
+        "Exception strategy",
+        "Choosing collections",
+        "Test plan"
+      ],
+      "task": {
+        "title": "Design the Mini Banking System",
+        "description": "Write requirements and user stories for a console banking system: customers, multiple account types, deposit, withdraw, transfer, transaction history, interest calculation, statements and an admin role. Draw the class diagram and package layout. List the custom exceptions and the tests you will write. Define the Money and Transaction models before coding."
+      }
+    },
+    {
+      "day": 44,
+      "title": "Capstone Day 2: Build the Core",
+      "topics": [
+        "Implementing model and service layers",
+        "Applying OOP, collections, streams and Optional",
+        "BigDecimal and immutability",
+        "Repository interface with in-memory implementation",
+        "Writing unit tests as you build"
+      ],
+      "task": {
+        "title": "Implement Model and Services",
+        "description": "Implement Customer, the Account hierarchy, Transaction records and Money. Build AccountService and TransactionService, where a failed transfer must leave both accounts unchanged. Use repository interfaces with in-memory map implementations. Write at least 20 unit tests. Keep all business logic out of the console UI classes."
+      }
+    },
+    {
+      "day": 45,
+      "title": "Capstone Day 3: Persistence, Polish and Self-Assessment",
+      "topics": [
+        "File persistence behind the repository interface",
+        "Console UI",
+        "Reports with streams",
+        "Logging and edge cases",
+        "README and design decisions",
+        "Self-assessment of Phase 1"
+      ],
+      "task": {
+        "title": "Finish, Test and Reflect",
+        "description": "Add file persistence as a second repository implementation, and build the menu UI. Produce statement and summary reports with streams (totals by type, monthly totals). Add logging, handle edge cases, and write a README with design decisions. Finally, go through every Phase 1 topic and mark each as confident, shaky or weak, and schedule revision for the weak ones. This project becomes the baseline you will rebuild with servlets, JDBC and Spring."
+      }
+    }
+  ]
+}

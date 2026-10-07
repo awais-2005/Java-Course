@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Java Roadmap Checklist</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <p class="eyebrow">PHASE 1 · JAVA</p>
+        <h1 id="roadmap-title">Java Roadmap Checklist</h1>
+        <p id="roadmap-goal" class="goal"></p>
+      </header>
+
+      <section class="progress-section" aria-label="Roadmap progress">
+        <div class="progress-heading">
+          <span id="progress-label">Loading progress…</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div
+          id="progress-track"
+          class="progress-track"
+          role="progressbar"
+          aria-label="Completed roadmap tasks"
+          aria-valuemin="0"
+          aria-valuemax="45"
+          aria-valuenow="0"
+        >
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="list-section" aria-label="Daily tasks">
+        <div class="list-heading">
+          <h2>Daily tasks</h2>
+          <button id="reset-button" class="text-button" type="button">Reset progress</button>
+        </div>
+        <div class="list-controls">
+          <label class="search-label" for="search-input">Search</label>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search days or topics"
+            autocomplete="off"
+          />
+          <div class="filters" role="group" aria-label="Filter daily tasks">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">
+              To do
+            </button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">
+              Done
+            </button>
+          </div>
+        </div>
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+        <div id="day-list" class="day-list"></div>
+        <p id="empty-state" class="empty-state" hidden>No matching days.</p>
+      </section>
+
+      <footer class="page-footer">
+        <span id="time-estimate"></span>
+        <span>Progress is saved on this device.</span>
+      </footer>
+    </main>
+  </body>
+</html>
